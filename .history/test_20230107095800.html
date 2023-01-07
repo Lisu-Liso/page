@@ -3,17 +3,6 @@
     <head>
         <meta charset="utf-8">
         <style>
-            body{
-                background: linear-gradient(60deg,RGB(72,163,218),RGB(157,80,158));
-                background-position: center 0;
-                background-repeat: no-repeat;
-                background-attachment: fixed;
-                background-size: cover;
-                -webkit-background-size: cover;
-                -o-background-size: cover;
-                -moz-background-size: cover;
-                -ms-background-size: cover;
-            }
             a {
                 position: relative;
                 display: inline-block;
@@ -24,7 +13,7 @@
                 user-select: none;
                 color: white;
             }
-            a::before {
+            ::before {
                 content: '';
                 position: absolute;
                 top: 0;
@@ -42,10 +31,10 @@
                     rotateY(var(--ry, 0))
                     translateZ(var(--tz, -12px));
             }
-            a:hover::before {
+            :hover::before {
                 box-shadow: 0 5px 15px rgba(0, 0, 0, .3);
             }
-            a::after {
+            ::after {
                 position: relative;
                 display: inline-block;
                 content: attr(data-title);
@@ -57,6 +46,9 @@
                     translateY(var(--ty, 0))
                     rotateX(var(--rx, 0))
                     rotateY(var(--ry, 0));
+            }
+            body{
+                background-color: white;
             }
         </style>
     </head>

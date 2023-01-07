@@ -3,17 +3,6 @@
     <head>
         <meta charset="utf-8">
         <style>
-            body{
-                background: linear-gradient(60deg,RGB(72,163,218),RGB(157,80,158));
-                background-position: center 0;
-                background-repeat: no-repeat;
-                background-attachment: fixed;
-                background-size: cover;
-                -webkit-background-size: cover;
-                -o-background-size: cover;
-                -moz-background-size: cover;
-                -ms-background-size: cover;
-            }
             a {
                 position: relative;
                 display: inline-block;
@@ -24,7 +13,7 @@
                 user-select: none;
                 color: white;
             }
-            a::before {
+            ::before {
                 content: '';
                 position: absolute;
                 top: 0;
@@ -42,10 +31,10 @@
                     rotateY(var(--ry, 0))
                     translateZ(var(--tz, -12px));
             }
-            a:hover::before {
+            :hover::before {
                 box-shadow: 0 5px 15px rgba(0, 0, 0, .3);
             }
-            a::after {
+            ::after {
                 position: relative;
                 display: inline-block;
                 content: attr(data-title);
@@ -58,6 +47,9 @@
                     rotateX(var(--rx, 0))
                     rotateY(var(--ry, 0));
             }
+            body{
+                back
+            }
         </style>
     </head>
     <body>
@@ -68,25 +60,40 @@
     const docStyle = document.documentElement.style
     const aElem = document.querySelector('a')
     const boundingClientRect = aElem.getBoundingClientRect()
+
     aElem.onmousemove = function(e) {
+
         const x = e.clientX - boundingClientRect.left
         const y = e.clientY - boundingClientRect.top
+
         const xc = boundingClientRect.width/2
         const yc = boundingClientRect.height/2
+
         const dx = x - xc
         const dy = y - yc
+
         docStyle.setProperty('--rx', `${ dy/-1 }deg`)
         docStyle.setProperty('--ry', `${ dx/10 }deg`)
+
     }
+
     aElem.onmouseleave = function(e) {
+
         docStyle.setProperty('--ty', '0')
         docStyle.setProperty('--rx', '0')
         docStyle.setProperty('--ry', '0')
+
     }
+
     aElem.onmousedown = function(e) {
+        
         docStyle.setProperty('--tz', '-25px')
+        
     }
+
     document.body.onmouseup = function(e) {
+        
         docStyle.setProperty('--tz', '-12px')
+        
     }
 </script>
