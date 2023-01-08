@@ -1,89 +1,89 @@
 .jelly-header-add-left {
-    width: 100%;
-    position: relative;
-    display: inline-block;
-    padding: 1.2em 2em;
+    width          : 100%;
+    position       : relative;
+    display        : inline-block;
+    padding        : 1.2em 2em;
     text-decoration: none;
-    text-align: left;
-    cursor: default;
-    user-select: none;
-    color: white;
+    text-align     : left;
+    cursor         : default;
+    user-select    : none;
+    color          : white;
 }
 .jelly-header-add-left::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background: rgba(0,0,0,0);
+    content      : '';
+    position     : absolute;
+    top          : 0;
+    left         : 0;
+    bottom       : 0;
+    right        : 0;
+    background   : rgba(0,0,0,0);
     border-radius: 4px;
 }
 .jelly-header-add-left::after {
-    position: relative;
-    display: inline-block;
-    content: attr(data-title);
-    font-weight: bold;
+    position      : relative;
+    display       : inline-block;
+    content       : attr(data-title);
+    font-weight   : bold;
     letter-spacing: .01em;
 }
 .jelly-header-add-right {
-    width: 100%;
-    position: relative;
-    display: inline-block;
-    top: 1.2em;
-    right: 2em;
+    width          : 100%;
+    position       : relative;
+    display        : inline-block;
+    top            : 1.2em;
+    right          : 2em;
     text-decoration: none;
-    cursor: default;
-    user-select: none;
-    color: white;
+    cursor         : default;
+    user-select    : none;
+    color          : white;
 }
 .jelly-header-add-right::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background: rgba(0,0,0,0);
+    content      : '';
+    position     : absolute;
+    top          : 0;
+    left         : 0;
+    bottom       : 0;
+    right        : 0;
+    background   : rgba(0,0,0,0);
     border-radius: 4px;
 }
 .jelly-header-add-right::after {
-    position: relative;
-    display: inline-block;
-    content: attr(data-title);
-    font-weight: bold;
+    position      : relative;
+    display       : inline-block;
+    content       : attr(data-title);
+    font-weight   : bold;
     letter-spacing: .01em;
 }
 .jelly-header-add-shadow{
-    width: 100%;
-    position: relative;
-    display: inline-block;
-    padding: 1.2em 2em;
+    width          : 100%;
+    position       : relative;
+    display        : inline-block;
+    padding        : 1.2em 2em;
     text-decoration: none;
-    text-align: center;
-    cursor: pointer;
-    user-select: none;
-    color: white;
+    text-align     : center;
+    cursor         : pointer;
+    user-select    : none;
+    color          : white;
 }
 .jelly-header-add-shadow::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background: rgba(0,0,0,0);
+    content      : '';
+    position     : absolute;
+    top          : 0;
+    left         : 0;
+    bottom       : 0;
+    right        : 0;
+    background   : rgba(0,0,0,0);
     border-radius: 4px;
-    transition: box-shadow .5s ease, transform .2s ease;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+    transition   : box-shadow .5s ease, transform .2s ease;
+    box-shadow   : 0 2px 5px rgba(0, 0, 0, .2);
 }
 .jelly-header-add-shadow:hover::before {
     box-shadow: 0 5px 15px rgba(0, 0, 0, .3);
 }
 .jelly-header-add-shadow::after {
-    position: relative;
-    display: inline-block;
-    content: attr(data-title);
-    font-weight: bold;
+    position      : relative;
+    display       : inline-block;
+    content       : attr(data-title);
+    font-weight   : bold;
     letter-spacing: .01em;
 }

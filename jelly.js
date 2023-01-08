@@ -1,9 +1,9 @@
-const docStyle = document.documentElement.style
-const aElem = document.querySelector('.jelly')
+const docStyle           = document.documentElement.style
+const aElem              = document.querySelector('.jelly')
 const boundingClientRect = aElem.getBoundingClientRect()
 aElem.onmousemove = function(e) {
-    const x = e.clientX - boundingClientRect.left
-    const y = e.clientY - boundingClientRect.top
+    const x  = e.clientX - boundingClientRect.left
+    const y  = e.clientY - boundingClientRect.top
     const xc = boundingClientRect.width/2
     const yc = boundingClientRect.height/2
     const dx = x - xc

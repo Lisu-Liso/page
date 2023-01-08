@@ -1,28 +1,28 @@
 .jelly-header {
-    width: 100%;
-    position: relative;
-    display: inline-block;
-    padding: 1.2em 2em;
+    width          : 100%;
+    position       : relative;
+    display        : inline-block;
+    padding        : 1.2em 2em;
     text-decoration: none;
-    text-align: center;
-    cursor: pointer;
-    user-select: none;
-    color: white;
+    text-align     : center;
+    cursor         : pointer;
+    user-select    : none;
+    color          : white;
 }
 .jelly-header::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    content      : '';
+    position     : absolute;
+    top          : 0;
+    left         : 0;
+    bottom       : 0;
+    right        : 0;
+    background   : linear-gradient(135deg, #6e8efb, #a777e3);
     border-radius: 4px;
 }
 .jelly-header::after {
-    position: relative;
-    display: inline-block;
-    content: attr(data-title);
-    font-weight: bold;
+    position      : relative;
+    display       : inline-block;
+    content       : attr(data-title);
+    font-weight   : bold;
     letter-spacing: .01em;
 }
