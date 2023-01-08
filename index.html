@@ -82,24 +82,28 @@
     </head>
     <body>
         <div id="transition_" class="transition_" style="position:fixed; z-index:999; top:0;"></div>
-        <div class="header-float-add" style="z-index: 1;">
-            <div class="jelly-header-add-left" data-title="Liso"></div>
-        </div>
-        <div class="header-float-add" style="z-index: 1;text-align: right;">
-            <div class="jelly-header-add-right" data-title="2023"></div>
-        </div>
-        <div class="header-float-add" style="z-index: 2;">
-            <div class="jelly-header-add-shadow"></div>
-        </div>
         <div class="header-float">
             <div class="jelly-header" data-title="GralleoX"></div>
         </div>
-        <div class="formal" id="step1">
+        <div class="header-float-add">
+            <div class="jelly-header-add-left" data-title="Liso"></div>
+        </div>
+        <div class="header-float-add" style="text-align: right;">
+            <div class="jelly-header-add-right" data-title="2023"></div>
+        </div>
+        <div class="header-float-add">
+            <div class="jelly-header-add-shadow"></div>
+        </div>
+        <div class="formal" id="step1"><!-- style="position: absolute;" -->
             <font size="7">First:</font>
             <hr/>
             <div>
-                <a class="jelly" style="z-index: 3;" data-title="I'm Chinese." onclick="fn2()"></a>
-                <a class="jelly" id="foren2" style="z-index: 3;" data-title="I'm not Chinese." onclick="fn1()"></a>
+                <a class="jelly" data-title="I'm Chinese." onclick="fn2()"></a>
+                <a class="jelly" id="foren2" data-title="I'm not Chinese." onclick="fn1()"></a>
+            </div>
+            <div style="position: relative;">
+                <div style="position: absolute;top: 0px;left: 0px;"><!-- style="position: absolute;top: 0px;left: 0px;" -->
+                </div>
             </div>
             <div id="foren1">
                 <br>
@@ -184,7 +188,7 @@
             <font size="5" color="black">You can learn more about Liso here.</font>
         </div>
         <br>
-        <a class="jelly" style="z-index: 3;" data-title="About Liso" href="./aboutme.html"></a>
+        <div style="top: 0;left: 0;"><a class="jelly" data-title="About Liso" href="./aboutme.html"></a></div>
     </body>
 </html>
 <script type="text/javascript">
@@ -208,6 +212,7 @@
         t.style.display = 'none';
         t = document.getElementById('transition_');
         t.style.display = 'block';
+        self.location.href = './aboutme.html'
         // /* setTimer( */self.location.href="https://www.baidu.com/"/* ,2) */;
     }
 </script>

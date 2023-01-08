@@ -1,5 +1,5 @@
 const docStyle           = document.documentElement.style
-const aElem              = document.querySelector('.jelly')
+const aElem              = document.querySelector('#testtesttest')
 const boundingClientRect = aElem.getBoundingClientRect()
 aElem.onmousemove = function(e) {
     const x  = e.clientX - boundingClientRect.left
