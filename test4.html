@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            /* transition用来给标签设置过渡效果,第一个值:设置对那个样式进行过渡,第二个值设置过渡时间 */
+            /* 强调:transition过渡需要一个触发机制(比如悬停,点击等)才会执行
+            2.transition不能等到触发的时候才添加,需要一开始就设置好 */
+
+            
+            transition: all 3s;
+
+        }
+        div:hover{
+            width: 300px;
+            height: 300px;
+            /* 边框,第一个值:边框的宽度,第二个值,边框的样式;(solid 单实现,double 双实线,dotted 点虚线);
+            第三个值.边框的颜色 */
+            border: 5px solid blue;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

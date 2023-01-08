@@ -2,11 +2,12 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <!-- <meta http-equiv="refresh" content="0;url=/test2.html"> -->
+        <!--  <meta http-equiv="refresh" content="0;url=/test2.html"> -->
         <link rel="stylesheet" type="text/css" href="./jelly.css">
         <link rel="stylesheet" type="text/css" href="./jelly-header.css">
         <link rel="stylesheet" type="text/css" href="./jelly-header-add.css">
         <link rel="stylesheet" type="text/css" href="./orientation.css">
+        <link rel="shortcut icon" href="./GralleoX logo.ico">
         <title>GralleoX Studio</title>
         <style>
             body{
@@ -50,6 +51,7 @@
                 margin-top: 70px;
             }
             .footer{
+                position     : sticky;
                 left         : 0;
                 right        : 0;
                 bottom       : 0;
@@ -57,11 +59,29 @@
                 margin-right : 0;
                 margin-bottom: 0;
                 background   : linear-gradient(50deg,#F902FF,#00DBDE);
-                position     : sticky;
+            }
+            .transition_{
+                left            : 0;
+                right           : 0;
+                top             : 0;
+                bottom          : 0;
+                margin-left     : 0;
+                margin-right    : 0;
+                margin-top      : 0;
+                margin-bottom   : 0;
+                background-color: rgba(0,0,0,0);
+                height          : 100%;
+                width           : 100%;
+                padding         : 0 0;
+                transition: all 2s;
+            }
+            .transition_:hover{
+                background-color: white;
             }
         </style>
     </head>
     <body>
+        <div id="transition_" class="transition_" style="position:fixed; z-index:999; top:0;"></div>
         <div class="header-float-add" style="z-index: 1;">
             <div class="jelly-header-add-left" data-title="Liso"></div>
         </div>
@@ -74,19 +94,17 @@
         <div class="header-float">
             <div class="jelly-header" data-title="GralleoX"></div>
         </div>
-        <div class="formal">
-            <font size="7" color="black">The site needs further improvement and optimization, so please be patient.</font>
-            <br>
-            <font size="7" color="black">该网站还需要进一步的改进和优化，请耐心等待。</font>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
+        <div class="formal" id="step1">
+            <font size="7">First:</font>
+            <hr/>
+            <div>
+                <a class="jelly" style="z-index: 3;" data-title="I'm Chinese." onclick="fn2()"></a>
+                <a class="jelly" id="foren2" style="z-index: 3;" data-title="I'm not Chinese." onclick="fn1()"></a>
+            </div>
+            <div id="foren1">
+                <br>
+                <font>This site was developed by Chinese. Users are also Chinese. So use Chinese.</font>
+            </div>
             <br>
             <br>
             <br>
@@ -140,18 +158,59 @@
             <br>
             <br>
             <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+        </div>
+        <div class="formal" id="step2">
+            <!--  -->
         </div>
         <div class="footer" style="text-align: center;">
             <p><i class="down"></i></p>
         </div>
         <hr/>
-        <font color="black">This page was powered by Liso.</font>
+        <img src="./GralleoX logo.png" style="float: left;" width="100px">
         <br>
-        <font color="black">You can learn more about Liso here.</font>
+        <div style="left: 0;margin-left: 100px;">
+            <font size="5" color="black">This page was powered by Liso.</font>
+            <br>
+            <font size="5" color="black">You can learn more about Liso here.</font>
+        </div>
         <br>
         <a class="jelly" style="z-index: 3;" data-title="About Liso" href="./aboutme.html"></a>
     </body>
 </html>
+<script type="text/javascript">
+    var t = document.getElementById('foren1');
+    t.style.display = 'none';
+    t = document.getElementById('transition_');
+    t.style.display = 'none';
+    function fn1(){
+        var t1 = document.getElementById('foren1');
+        var t2 = document.getElementById('foren2');
+        if(t1.style.display === 'none') {
+            t1.style.display = 'block';
+            t2.setAttribute('data-title','Tap again to collapse.');
+        } else {
+            t1.style.display = 'none';
+            t2.setAttribute('data-title','I\'m not Chinese.');
+        }
+    }
+    function fn2(){
+        var t = document.getElementById('step1');
+        t.style.display = 'none';
+        t = document.getElementById('transition_');
+        t.style.display = 'block';
+        // /* setTimer( */self.location.href="https://www.baidu.com/"/* ,2) */;
+    }
+</script>
 <!-- <script  type="text/javascript" src="./jelly.js"></script> -->
 <!-- This JavaScript has something wrong.We will fix it to make it showned in the future. -->
 <!--

@@ -1,0 +1,32 @@
+<head>
+    <script type="text/javascript">
+            function fn1(){
+                var t = document.getElementById('test');
+                if(t.style.display === 'none') {
+                    t.style.display = 'block';// 以块级元素显示
+                } else {
+                    t.style.display = 'none'; // 隐藏
+                }
+            }
+
+        function fn2(){
+            var t = document.getElementById('test');
+            if(t.style.visibility === 'hidden') {
+                t.style.visibility = 'visible';
+            } else {
+                t.style.visibility = 'hidden';
+            }
+        }
+    </script>
+</head>
+
+<body>
+	<div id="test" style="border: solid 1px #e81515; width:500px;">
+	    这是一个将要隐藏的DIV。<br>
+	    这是一个将要隐藏的DIV。<br>
+	    这是一个将要隐藏的DIV。<br>
+	    这是一个将要隐藏的DIV。<br>
+	</div>
+	<button onclick="fn1()">第一种方式</button>
+	<button onclick="fn2()">第二种方式</button>
+</body>
