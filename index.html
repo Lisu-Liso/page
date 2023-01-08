@@ -96,9 +96,15 @@
         </div>
         <div class="formal" id="step1"><!-- style="position: absolute;" -->
             <font size="7">First:</font>
+            <br>
+            <font size="7">首先：</font>
+            <br>
+            <font color="gray">After clicking the button, the page will jump to Baidu. Later pages take time to develop.</font>
+            <br>
+            <font color="gray">点击按钮跳转后的页面会跳转至百度。后面的页面需要时间开发。</font>
             <hr/>
             <div>
-                <a class="jelly" data-title="I'm Chinese." onclick="fn2()"></a>
+                <a class="jelly" data-title="我是中国人。" onclick="fn2()"></a>
                 <a class="jelly" id="foren2" data-title="I'm not Chinese." onclick="fn1()"></a>
             </div>
             <div style="position: relative;">
@@ -208,12 +214,9 @@
         }
     }
     function fn2(){
-        var t = document.getElementById('step1');
-        t.style.display = 'none';
-        t = document.getElementById('transition_');
+        var t = document.getElementById('transition_');
         t.style.display = 'block';
         setTimeout(function(){self.location.href = 'https://www.baidu.com/';}, 3000);
-        // /* setTimer( */self.location.href="https://www.baidu.com/"/* ,2) */;
     }
 </script>
 <!-- <script  type="text/javascript" src="./jelly.js"></script> -->
