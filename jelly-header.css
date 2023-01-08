@@ -1,0 +1,34 @@
+.jelly-header{
+    width: 100%;
+    height: 1.5em;
+    position: relative;
+    display: inline-block;
+    padding: 1.2em 2em;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    color: white;
+}
+.jelly-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    border-radius: 4px;
+    transition: box-shadow .5s ease, transform .2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+}
+.jelly-header:hover::before {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .3);
+}
+.jelly-header::after {
+    position: relative;
+    display: inline-block;
+    content: attr(data-title);
+    font-weight: bold;
+    letter-spacing: .01em;
+}
