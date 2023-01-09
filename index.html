@@ -15,6 +15,7 @@
                 background     : linear-gradient(45deg, rgb(237, 255, 251), rgb(255, 247, 223));
                 background-size: 6000% 6000%;
                 animation      : gradientBG 60s ease infinite;
+                font-family    : '微软雅黑';
             }
             @keyframes gradientBG {
                 0% {
@@ -30,18 +31,11 @@
             ::-webkit-scrollbar{display: none;}
             .header-float{
                 position  : fixed;
+                /* position: sticky; */
                 top       : 0;
                 left      : 0;
                 right     : 0;
                 bottom    : 0;
-                text-align: center;
-            }
-            .header-float-add{
-                position: fixed;
-                top     : 0;
-                left    : 0;
-                right   : 0;
-                bottom  : 0;
             }
             .formal{
                 top       : 0;
@@ -85,13 +79,13 @@
         <div class="header-float">
             <div class="jelly-header" data-title="GralleoX"></div>
         </div>
-        <div class="header-float-add">
+        <div class="header-float">
             <div class="jelly-header-add-left" data-title="Liso"></div>
         </div>
-        <div class="header-float-add" style="text-align: right;">
+        <div class="header-float" style="text-align: right;">
             <div class="jelly-header-add-right" data-title="2023"></div>
         </div>
-        <div class="header-float-add">
+        <div class="header-float">
             <div class="jelly-header-add-shadow"></div>
         </div>
         <div class="formal" id="step1"><!-- style="position: absolute;" -->
@@ -102,6 +96,10 @@
             <font color="gray">After clicking the button, the page will jump to Baidu. Later pages take time to develop.</font>
             <br>
             <font color="gray">点击按钮跳转后的页面会跳转至百度。后面的页面需要时间开发。</font>
+            <br>
+            <font color="gray">There are still issues with the priority of the control at the moment, please wait for optimization.</font>
+            <br>
+            <font color="gray">目前控件的优先级仍然存在问题，请等待优化。</font>
             <hr/>
             <div>
                 <a class="jelly" data-title="我是中国人。" onclick="fn2()"></a>
@@ -194,7 +192,7 @@
             <font size="5" color="black">You can learn more about Liso here.</font>
         </div>
         <br>
-        <div style="top: 0;left: 0;"><a class="jelly" data-title="About Liso" href="./aboutme.html"></a></div>
+        <div style="top: 0;left: 0;"><a class="jelly" data-title="About Liso" onclick="fn3()"></a></div>
     </body>
 </html>
 <script type="text/javascript">
@@ -217,6 +215,11 @@
         var t = document.getElementById('transition_');
         t.style.display = 'block';
         setTimeout(function(){self.location.href = 'https://www.baidu.com/';}, 3000);
+    }
+    function fn3(){
+        var t = document.getElementById('transition_');
+        t.style.display = 'block';
+        setTimeout(function(){self.location.href = './aboutme.html';}, 3000);
     }
 </script>
 <!-- <script  type="text/javascript" src="./jelly.js"></script> -->
