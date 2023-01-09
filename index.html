@@ -9,79 +9,6 @@
         <link rel="stylesheet" type="text/css" href="./orientation.css">
         <link rel="shortcut icon" href="./GralleoX logo.ico">
         <title>GralleoX Studio</title>
-        <style>
-            body{
-                overflow       : scroll;
-                background     : linear-gradient(45deg, rgb(237, 255, 251), rgb(255, 247, 223));
-                background-size: 6000% 6000%;
-                animation      : gradientBG 60s ease infinite;
-                font-family    : '微软雅黑';
-            }
-            @keyframes gradientBG {
-                0% {
-                    background-position: 0% 50%;
-                }
-                50% {
-                    background-position: 100% 50%;
-                }
-                100% {
-                    background-position: 0% 50%;
-                }
-            }
-            ::-webkit-scrollbar{display: none;}
-            .header-float{
-                position  : fixed;
-                /* position: sticky; */
-                top       : 0;
-                left      : 0;
-                right     : 0;
-                bottom    : 0;
-            }
-            .formal{
-                top       : 0;
-                left      : 0;
-                right     : 0;
-                bottom    : 0;
-                margin-top: 70px;
-            }
-            .footer{
-                position     : sticky;
-                left         : 0;
-                right        : 0;
-                bottom       : 0;
-                margin-left  : 0;
-                margin-right : 0;
-                margin-bottom: 0;
-                background   : linear-gradient(50deg,#F902FF,#00DBDE);
-            }
-            .transition_{
-                left            : 0;
-                right           : 0;
-                top             : 0;
-                bottom          : 0;
-                margin-left     : 0;
-                margin-right    : 0;
-                margin-top      : 0;
-                margin-bottom   : 0;
-                background-color: rgba(0,0,0,0);
-                height          : 100%;
-                width           : 100%;
-                padding         : 0 0;
-                transition: all 2s;
-            }
-            .transition_:hover{
-                background-color: white;
-            }
-            .getin_{
-                position: fixed;
-                top: 0;
-                left: 0;
-                bottom: 0;
-                right: 0;
-                background-color: white;
-                transition: all 2s;
-            }
-        </style>
     </head>
     <body>
         <div id='getin' class="getin_" style="z-index: 1000;">
@@ -213,19 +140,84 @@
         <div style="top: 0;left: 0;"><a class="jelly" data-title="About Liso" onclick="fn3()"></a></div>
     </body>
 </html>
+<style>
+    body{
+        overflow       : scroll;
+        background     : linear-gradient(45deg, rgb(237, 255, 251), rgb(255, 247, 223));
+        background-size: 6000% 6000%;
+        animation      : gradientBG 60s ease infinite;
+        font-family    : '微软雅黑';
+    }
+    @keyframes gradientBG {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+    ::-webkit-scrollbar{display: none;}
+    .header-float{
+        position  : fixed;
+        /* position: sticky; */
+        top       : 0;
+        left      : 0;
+        right     : 0;
+        bottom    : 0;
+    }
+    .formal{
+        top       : 0;
+        left      : 0;
+        right     : 0;
+        bottom    : 0;
+        margin-top: 70px;
+    }
+    .footer{
+        position     : sticky;
+        left         : 0;
+        right        : 0;
+        bottom       : 0;
+        margin-left  : 0;
+        margin-right : 0;
+        margin-bottom: 0;
+        background   : linear-gradient(50deg,#F902FF,#00DBDE);
+    }
+    .transition_{
+        left            : 0;
+        right           : 0;
+        top             : 0;
+        bottom          : 0;
+        margin-left     : 0;
+        margin-right    : 0;
+        margin-top      : 0;
+        margin-bottom   : 0;
+        background-color: rgba(0,0,0,0);
+        height          : 100%;
+        width           : 100%;
+        padding         : 0 0;
+        transition: all 2s;
+    }
+    .transition_:hover{
+        background-color: white;
+    }
+    .getin_{
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: white;
+        /* transition: all 2s; */
+    }
+</style>
 <script type="text/javascript">
     var t = document.getElementById('foren1');
     t.style.display = 'none';
     t = document.getElementById('transition_');
     t.style.display = 'none';
-    t = document.getElementById('getinnoteen');
-    setTimeout(function(){t.innerHTML = 'The website is loaded. Ready to enter.';t = document.getElementById('getinnotech');t.innerHTML = '网站加载完成。准备进入。';_getin();}, 2000);
-    function _getin(){
-        setTimeout(function(){var t = document.getElementById('getin');t.style.background = 'rgba(0,0,0,0)';t.style.color = 'rgba(0,0,0,0)';_getin2()},1000);
-    }
-    function _getin2(){
-        setTimeout(function(){var t = document.getElementById('getin');t.style.display = 'none';},3000);
-    }
     function fn1(){
         var t1 = document.getElementById('foren1');
         var t2 = document.getElementById('foren2');
@@ -247,6 +239,16 @@
         t.style.display = 'block';
         setTimeout(function(){self.location.href = './aboutme.html';}, 3000);
     }
+</script>
+<script type="text/javascript">
+        var t = document.getElementById('getinnoteen');
+        setTimeout(function(){t.innerHTML = 'The website is loaded. Ready to enter.';t = document.getElementById('getinnotech');t.innerHTML = '网站加载完成。准备进入。';_getin();}, 2000);
+        function _getin(){
+            setTimeout(function(){var t = document.getElementById('getin');t.style.transition = 'all 2s';t.style.background = 'rgba(0,0,0,0)';t.style.color = 'rgba(0,0,0,0)';_getin2()},1000);
+        }
+        function _getin2(){
+            setTimeout(function(){var t = document.getElementById('getin');t.style.display = 'none';},3000);
+        }
 </script>
 <!-- <script  type="text/javascript" src="./jelly.js"></script> -->
 <!-- This JavaScript has something wrong.We will fix it to make it showned in the future. -->
