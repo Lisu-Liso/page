@@ -72,9 +72,27 @@
             .transition_:hover{
                 background-color: white;
             }
+            .getin_{
+                position: fixed;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                background-color: white;
+                transition: all 2s;
+            }
         </style>
     </head>
     <body>
+        <div id='getin' class="getin_" style="z-index: 1000;">
+            <font size="7" id="getinnoteen">The website is loading.</font>
+            <br>
+            <font size="7" id="getinnotech">网站正在加载。</font>
+            <br>
+            <font size="6">Mobile access is not recommended, and controls that use pointers are not touch-friendly.</font>
+            <br>
+            <font size="6">不建议使用手机访问，使用指针的控件对触控屏幕不友好。</font>
+        </div>
         <div id="transition_" class="transition_" style="position:fixed; z-index:999; top:0;"></div>
         <div class="header-float">
             <div class="jelly-header" data-title="GralleoX"></div>
@@ -200,6 +218,14 @@
     t.style.display = 'none';
     t = document.getElementById('transition_');
     t.style.display = 'none';
+    t = document.getElementById('getinnoteen');
+    setTimeout(function(){t.innerHTML = 'The website is loaded. Ready to enter.';t = document.getElementById('getinnotech');t.innerHTML = '网站加载完成。准备进入。';_getin();}, 2000);
+    function _getin(){
+        setTimeout(function(){var t = document.getElementById('getin');t.style.background = 'rgba(0,0,0,0)';t.style.color = 'rgba(0,0,0,0)';_getin2()},1000);
+    }
+    function _getin2(){
+        setTimeout(function(){var t = document.getElementById('getin');t.style.display = 'none';},3000);
+    }
     function fn1(){
         var t1 = document.getElementById('foren1');
         var t2 = document.getElementById('foren2');
