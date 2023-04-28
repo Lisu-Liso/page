@@ -20,7 +20,7 @@
             <br>
             <font size="6">不建议使用手机访问，使用指针的控件对触控屏幕不友好。</font>
         </div>
-        <div id="transition_" class="transition_" style="z-index:999;"></div>
+        <div id="transition_" class="transition_" style="position:fixed; z-index:999; top:0;"></div>
         <div class="header-float">
             <div class="jelly-header" data-title="GralleoX"></div>
         </div>
@@ -162,10 +162,11 @@
     ::-webkit-scrollbar{display: none;}
     .header-float{
         position  : fixed;
+        /* position: sticky; */
         top       : 0;
         left      : 0;
         right     : 0;
-        height    : 70px;
+        bottom    : 0;
     }
     .formal{
         top       : 0;
@@ -185,28 +186,27 @@
         background   : linear-gradient(50deg,#F902FF,#00DBDE);
     }
     .transition_{
-        position        : fixed;
         left            : 0;
         right           : 0;
         top             : 0;
         bottom          : 0;
-        background-color: rgba(0,0,0,0);
-        /* margin-left     : 0;
+        margin-left     : 0;
         margin-right    : 0;
         margin-top      : 0;
-        margin-bottom   : 0; */
-        /* height          : 100%;
+        margin-bottom   : 0;
+        background-color: rgba(0,0,0,0);
+        height          : 100%;
         width           : 100%;
-        padding         : 0 0; */
-        /* transition      : all 2s; */
+        padding         : 0 0;
     }
     .getin_{
-        position        : fixed;
-        top             : 0;
-        left            : 0;
-        bottom          : 0;
-        right           : 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
         background-color: white;
+        /* transition: all 2s; */
     }
 </style>
 <script type="text/javascript">
@@ -227,9 +227,11 @@
     }
     function fn2(){
         var t = document.getElementById('transition_');
-        // t.style.display = 'block';t.style.transition = 'all 2s't.style.background = 'white';
-        setTimeout(function(){t.style.display = 'block';t.style.transition = 'all 2s';t.style.background = 'white';},3000)
-        // setTimeout(function(){t.style.display = 'none';/* self.location.href = 'https://www.baidu.com/'; */}, 3000);
+        t.style.display = 'block';
+        t.style.background = 'rgba(0,0,0,0)';
+        t.style.transition = 'all 2s';
+        t.style.background = ‘white';
+        setTimeout(function(){self.location.href = 'https://www.baidu.com/';}, 3000);
     }
     function fn3(){
         var t = document.getElementById('transition_');

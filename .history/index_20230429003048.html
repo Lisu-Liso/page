@@ -20,7 +20,7 @@
             <br>
             <font size="6">不建议使用手机访问，使用指针的控件对触控屏幕不友好。</font>
         </div>
-        <div id="transition_" class="transition_" style="z-index:999;"></div>
+        <div id="transition_" class="transition_" style="position:fixed; z-index:999; top:0;"></div>
         <div class="header-float">
             <div class="jelly-header" data-title="GralleoX"></div>
         </div>
@@ -162,10 +162,11 @@
     ::-webkit-scrollbar{display: none;}
     .header-float{
         position  : fixed;
+        /* position: sticky; */
         top       : 0;
         left      : 0;
         right     : 0;
-        height    : 70px;
+        bottom    : 0;
     }
     .formal{
         top       : 0;
@@ -227,8 +228,8 @@
     }
     function fn2(){
         var t = document.getElementById('transition_');
-        // t.style.display = 'block';t.style.transition = 'all 2s't.style.background = 'white';
-        setTimeout(function(){t.style.display = 'block';t.style.transition = 'all 2s';t.style.background = 'white';},3000)
+        t.style.display = 'block';t.style.transition = 'all 2s't.style.background = 'white';
+        setTimeout(function(){t.style.display = 'block';t.style.transition = 'all 2s't.style.background = 'white';},3000)
         // setTimeout(function(){t.style.display = 'none';/* self.location.href = 'https://www.baidu.com/'; */}, 3000);
     }
     function fn3(){
