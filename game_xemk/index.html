@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="shortcut icon" href="../page/GralleoX logo v2 web.ico">
+        <title>GralleoX Studio Game - XEMK</title>
+    </head>
+    <body>
+        <div style="background-color:rgb(61, 48, 238);width:700px;">
+            <div class="card" id="c1">
+                <p class="num" id="cn1"></p>
+                <p class="left" id="cd1"></p>
+                <p class="right" id="ch1"></p>
+            </div>
+            <div class="card" id="c2">
+                <p class="num" id="cn2"></p>
+                <p class="left" id="cd2"></p>
+                <p class="right" id="ch2"></p>
+            </div>
+            <div class="card" id="c3">
+                <p class="num" id="cn3"></p>
+                <p class="left" id="cd3"></p>
+                <p class="right" id="ch3"></p>
+            </div>
+            <div class="card" id="c4">
+                <p class="num" id="cn4"></p>
+                <p class="left" id="cd4"></p>
+                <p class="right" id="ch4"></p>
+            </div>
+            <br>
+            <div class="card" id="c5">
+                <p class="num" id="cn5"></p>
+                <p class="left" id="cd5"></p>
+                <p class="right" id="ch5"></p>
+            </div>
+            <div class="card" id="c6">
+                <p class="num" id="cn6"></p>
+                <p class="left" id="cd6"></p>
+                <p class="right" id="ch6"></p>
+            </div>
+            <div class="card" id="c7">
+                <p class="num" id="cn7"></p>
+                <p class="left" id="cd7"></p>
+                <p class="right" id="ch7"></p>
+            </div>
+            <div class="card" id="c8">
+                <p class="num" id="cn8"></p>
+                <p class="left" id="cd8"></p>
+                <p class="right" id="ch8"></p>
+            </div>
+        </div>
+        <br>
+        <p>name:</p>
+        <input id="inputbox_whoami" value="Your Name...">
+        <br>
+        <input id="inputbox_whoama" value="Another's Name...">
+        <br>
+        <button onclick="save()">Save</button>
+        <br>
+        <p>information:</p>
+        <input id="inputbox_data">
+        <button onclick="sublim()">Sublim</button>
+        <br>
+        <button onclick="compile()">compile</button>
+        <hr/>
+        <button onclick="newcard()">New Card</button>
+        <button onclick="newcard0()">New Card</button>
+        <p>card sequence number:</p>
+        <input id="inputbox_cardid">
+        <button onclick="toggle()">OK</button>
+        <br>
+        <p>Name:</p>
+        <p id="textbox_cardname"></p>
+        <br>
+        <p>Power:</p>
+        <p id="textbox_carddo"></p>
+        <br>
+        <p>Health:</p>
+        <p id="textbox_cardhave"></p>
+    </body>
+</html>
+<style>
+    .card{
+        margin-left     : 10px;
+        margin-right    : 10px;
+        margin-top      : 10px;
+        margin-bottom   : 10px;
+        background-color: rgb(219, 155, 36);
+        color           :rgb(65, 238, 180);
+        width           : 150px;
+        height          : 150px;
+        display         : inline-block;
+        position        : relative;
+    }
+    .num{
+        position     : absolute;
+        left         : 50%;
+        right        : 5px;
+        top          : 5px;
+        transform    : translateY(-50%) translateX(-50%);
+        margin-left  : 5px;
+        margin-right : 5px;
+        margin-top   : 5px;
+        margin-bottom: 5px;
+        text-align   : center;
+    }
+    .left{
+        position     : absolute;
+        left         : 5px;
+        bottom       : 5px;
+        margin-left  : 5px;
+        margin-right : 5px;
+        margin-top   : 5px;
+        margin-bottom: 5px;
+        text-align   : left;
+    }
+    .right{
+        position     : absolute;
+        right        : 5px;
+        bottom       : 5px;
+        margin-left  : 5px;
+        margin-right : 5px;
+        margin-top   : 5px;
+        margin-bottom: 5px;
+        text-align   : right;
+    }
+</style>
+<script type="text/javascript">
+    var cd = [];
+    var myname = 'noinputname';
+    var anname = 'noinputname';
+    var information = 'nonono';
+    var gamedata = {};
+    for(let i = 1 ; i <= 8 ; i++){
+        cd.push(document.getElementById('c'+i.toString()));
+        cd[i-1].style.backgroundColor = "rgb(0,0,0)";
+    }
+    async function toggle(){
+        let inputbox = document.getElementById('inputbox_cardid');
+        let cardid = parseInt(inputbox.value);
+        let namebox = document.getElementById('textbox_cardname');
+        let powerbox = document.getElementById('textbox_carddo');
+        let healthbox = document.getElementById('textbox_cardhave');
+        let cardInfo = await downloadcardinformation(gamedata[myname].card[cardid]);
+        console.log(cardInfo);
+        namebox.innerHTML = cardInfo.name;
+        powerbox.innerHTML = cardInfo.power;
+        healthbox.innerHTML = cardInfo.health;
+    }
+    function compile(){
+        let inputbox = document.getElementById('inputbox_data');
+        inputbox.value = JSON.stringify(gamedata);
+    }
+    function refresh(){
+        try{
+            for(let i = 0 ;i < 8 ;i++){
+                let dobox = document.getElementById('cn'+(i+1).toString());
+                dobox.innerHTML = gamedata.desktop[i].name;
+                dobox = document.getElementById('cd'+(i+1).toString());
+                dobox.innerHTML = gamedata.desktop[i].power;
+                dobox = document.getElementById('ch'+(i+1).toString());
+                dobox.innerHTML = gamedata.desktop[i].health;
+                if(gamedata.desktop[i].name != ''){
+                    dobox = document.getElementById('c'+(i+1).toString());
+                    dobox.style.backgroundColor = "rgb(219, 155, 36)";
+                    dobox.style.color = "rgb(65, 238, 180)";
+                }else{
+                    dobox = document.getElementById('c'+(i+1).toString());
+                    dobox.style.color = "black";
+                }
+            }
+        }catch(error){
+            alert('Game Data Is Wrong!');
+        }
+    }
+    function sublim(){
+        if (myname === 'noinputname'){
+            alert('You Shuld Input You Name First!');
+            return;
+        }
+        let inputbox = document.getElementById('inputbox_data');
+        information = inputbox.value;
+        try{
+            gamedata = JSON.parse(information);
+        }catch(error){
+            alert('Game Data Is Wrong!');
+        }
+        refresh();
+    }
+    function save(){
+        if (information === 'nonono'){
+            let inputbox = document.getElementById('inputbox_whoami');
+            myname = inputbox.value;
+            inputbox = document.getElementById('inputbox_whoama');
+            anname = inputbox.value;
+            if(myname === 'noinputname' || anname === 'noinputname' || myname === 'Your Name...' || anname === 'Another\'s Name...'){
+                alert('You Should Input The \'Name\' First!');
+                return;
+            }
+            alert('You Name is \''+myname+'\'!');
+            let gamedatabox = document.getElementById('inputbox_data');
+            gamedatabox.value = '{\"desktop\":[{\"name\":\"\",\"power\":0,\"health\":0},{\"name\":\"\",\"power\":0,\"health\":0},{\"name\":\"\",\"power\":0,\"health\":0},{\"name\":\"\",\"power\":0,\"health\":0},{\"name\":\"\",\"power\":0,\"health\":0},{\"name\":\"\",\"power\":0,\"health\":0},{\"name\":\"\",\"power\":0,\"health\":0},{\"name\":\"\",\"power\":0,\"health\":0}],\"'+myname+'\":{\"cardnum\":0,\"card\":[]},\"'+anname+'\":{\"cardnum\":0,\"card\":[]}}';
+        } else {
+            alert('You Can\'t Change Your Name After Started The Game!');
+            return;
+        }
+    }
+    function downloadcardnum() {
+        return new Promise((resolve, reject) => {
+            let xhr = new XMLHttpRequest();
+            xhr.open('GET', './data/card/num.txt', true);
+            xhr.responseType = 'text';
+            xhr.onload = function(e) {
+                if (this.status === 200) {
+                    resolve(this.responseText);
+                } else {
+                    alert('Download Card Information Error!');
+                }
+            };
+            xhr.onerror = function(e) {
+                alert('Download Card Information Error!');
+            };
+            xhr.send();
+        });
+    }
+
+    function downloadcardinformation(cardid) {
+        return new Promise((resolve, reject) => {
+            let xhr = new XMLHttpRequest();
+            xhr.open('GET', './data/card/' + cardid.toString() + '.json', true);
+            xhr.responseType = 'text';
+            xhr.onload = function(e) {
+                if (this.status === 200) {
+                    resolve(JSON.parse(this.responseText));
+                } else {
+                    alert('Download Card Information Error!');
+                }
+            };
+            xhr.onerror = function(e) {
+                alert('Download Card Information Error!');
+            };
+            xhr.send();
+        });
+    }
+    async function newcard(){
+        let randomint = Math.floor(Math.random()*(await downloadcardnum()))+1;
+        gamedata[myname].cardnum++;
+        gamedata[myname].card.push(randomint);
+    }
+    async function newcard0(){
+        gamedata[myname].cardnum++;
+        // let cardInfo = await downloadcardinformation(0);
+        gamedata[myname].card.push(0);
+    }
+</script>

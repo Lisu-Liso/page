@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>青华中学2019级四班私有-成绩上传网站</title>
+        <link rel="stylesheet" type="text/css" href="./header.css">
+        <link rel="shortcut icon" href="./GralleoX logo v2 web.ico">
+        <style>
+            body{
+                    overflow       : scroll;
+                    background     : linear-gradient(45deg, rgb(237, 255, 251), rgb(255, 247, 223));
+                    background-size: 6000% 6000%;
+                    animation      : gradientBG 60s ease infinite;
+                    top            : 0;
+                    bottom         : 0;
+                    left           : 0;
+                    right          : 0;
+                    margin-top     : 100px;
+                    margin-bottom  : 0;
+                    margin-left    : 100px;
+                    margin-right   : 100px;
+                    user-select    : none;
+                }
+                @keyframes gradientBG {
+                    0% {
+                        background-position: 0% 50%;
+                    }
+                    50% {
+                        background-position: 100% 50%;
+                    }
+                    100% {
+                        background-position: 0% 50%;
+                    }
+                }
+                ::-webkit-scrollbar{display: none;}
+                .header-float{
+                    position: fixed;
+                    top     : 0;
+                    left    : 0;
+                    right   : 0;
+                    width   : 100%;
+                }
+        </style>
+    </head>
+    <body>
+        <font size="7" color="red">请一定在提交之前认真检查成绩！重复提交代表修改信息！所有信息不应该也不允许出现空格！</font>
+        <p>真实姓名：</p>
+        <input id="name">
+        <p>语文成绩：</p>
+        <input id="yuwen">
+        <p>数学成绩：</p>
+        <input id="shuxue">
+        <p>英语成绩：</p>
+        <input id="yingyu">
+        <p>物理成绩：</p>
+        <input id="wuli">
+        <p>化学成绩：</p>
+        <input id="huaxue">
+        <p>政治成绩：</p>
+        <input id="zhengzhi">
+        <br>
+        <br>
+        <button id="uploadButton">保存并上传</button>
+        <div class="headerblock">
+            <div class="centertext"><font size="6">GralleoX Studio</font></div>
+            <div class="lefttext"><font size="6">Spwaiter(Liso)</font></div>
+            <div class="righttext"><font size="6">2023</font></div>
+        </div>
+    </body>
+    <script type="text/javascript">
+        document.getElementById("uploadButton").addEventListener("click", function() {
+            var url = "../upload";
+            var json_str = "{\"姓名\":\"";
+            var t = document.getElementById("name");
+            var addstr = t.value;
+            if(addstr == ""){
+                alert("请填写你的真实姓名")
+            }
+            json_str += addstr;
+            json_str += "\",\"语文\":\"";
+            var t = document.getElementById("yuwen");
+            var addstr = t.value;
+            if(addstr == ""){
+                alert("请填写你的语文成绩！")
+            }
+            json_str += addstr;
+            json_str += "\",\"数学\":\"";
+            var t = document.getElementById("shuxue");
+            var addstr = t.value;
+            if(addstr == ""){
+                alert("请填写你的数学成绩！")
+            }
+            json_str += addstr;
+            json_str += "\",\"英语\":\"";
+            var t = document.getElementById("yingyu");
+            var addstr = t.value;
+            if(addstr == ""){
+                alert("请填写你的英语成绩！")
+            }
+            json_str += addstr;
+            json_str += "\",\"物理\":\"";
+            var t = document.getElementById("wuli");
+            var addstr = t.value;
+            if(addstr == ""){
+                alert("请填写你的物理成绩！")
+            }
+            json_str += addstr;
+            json_str += "\",\"化学\":\"";
+            var t = document.getElementById("huaxue");
+            var addstr = t.value;
+            if(addstr == ""){
+                alert("请填写你的化学成绩！")
+            }
+            json_str += addstr;
+            json_str += "\",\"政治\":\"";
+            var t = document.getElementById("zhengzhi");
+            var addstr = t.value;
+            if(addstr == ""){
+                alert("请填写你的政治成绩！")
+            }
+            json_str += addstr;
+            json_str += "\"}";
+            console.log(json_str);
+            var jsonData = JSON.parse(json_str);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", url, true);
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        console.log('SUCCESS')
+                        alert("成绩上传成功！");
+                    } else {
+                        console.log('FAILED')
+                        alert("成绩上传失败！请与网站负责人（也就是wly）联系取得帮助。");
+                    }
+                }
+            };
+            xhr.send(JSON.stringify(jsonData));
+        });
+    </script>
+</html>
