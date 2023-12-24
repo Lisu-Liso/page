@@ -7,19 +7,17 @@
     <link rel="shortcut icon" href="./GralleoX logo v2 web.ico">
     <style>
         body{
-            overflow       : scroll;
-            background     : linear-gradient(45deg, rgb(248, 255, 253), rgb(255, 253, 247));
-            background-size: 6000% 6000%;
-            animation      : gradientBG 60s ease infinite;
-            top            : 0;
-            bottom         : 0;
-            left           : 0;
-            right          : 0;
-            margin-top     : 100px;
-            margin-bottom  : 0;
-            margin-left    : 0;
-            margin-right   : 0;
-            user-select    : none;
+            overflow        : scroll;
+            background-color: white;
+            top             : 0;
+            bottom          : 0;
+            left            : 0;
+            right           : 0;
+            margin-top      : 100px;
+            margin-bottom   : 0;
+            margin-left     : 0;
+            margin-right    : 0;
+            user-select     : none;
         }
         @keyframes gradientBG {
             0% {
@@ -192,9 +190,19 @@
         font{
             cursor : default;
         }
+        .backgroundimage{
+            position: fixed;
+            top     : 0;
+            left    : 0;
+            right   : 0;
+            width   : 100%;
+            height  : 100%;
+            z-index: -1;
+        }
     </style>
 </head>
 <body>
+    <img class="backgroundimage" src="./background.png">
     <div id="controller"></div>
     <div class="headerblock">
         <div class="centertext"><font size="6">GralleoX Studio</font></div>
