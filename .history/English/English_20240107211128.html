@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>GralleoX Studio - English Media</title>
+    <title>GralleoX Studio - English Media Choser</title>
     <link rel="stylesheet" type="text/css" href="./header.css">
     <link rel="shortcut icon" href="./GralleoX logo v2 web.ico">
     <style>
@@ -124,7 +124,7 @@
             right   : 0;
             width   : 100%;
         }
-        .black_board{
+        .transitionblock{
             position               : fixed;
             top                    : 80px;
             left                   : 0;
@@ -136,7 +136,7 @@
             margin-bottom          : 0;
             backdrop-filter        : blur(15px);
             -webkit-backdrop-filter: blur(15px);
-            background-color       : rgba(0,0,0,0.3);
+            background-color       : rgba(0,0,0,0);
         }
         @keyframes boardout{
             0% {
@@ -147,19 +147,7 @@
             100% {
                 backdrop-filter        : blur(15px);
                 -webkit-backdrop-filter: blur(15px);
-                background-color       : rgba(0,0,0,0.3);
-            }
-        }
-        @keyframes boardquite{
-            0% {
-                backdrop-filter        : blur(15px);
-                -webkit-backdrop-filter: blur(15px);
-                background-color       : rgba(0,0,0,0.3);
-            }
-            100% {
-                backdrop-filter        : blur(0px);
-                -webkit-backdrop-filter: blur(0px);
-                background-color       : rgba(0,0,0,0);
+                background-color       : rgba(255,255,255,1);
             }
         }
         .newbutton{
@@ -212,7 +200,11 @@
     <div class="getin_screen" id="getin">
         <font size="7" id="getintext">The website is loading, please wait...</font>
     </div>
+    <div class="getin_screen" id="bb">
+        <font size="7" id="getintext">The website is loading, please wait...</font>
+    </div>
     <script>
+        var abletojump = 0;
         setTimeout(function(){
         let t = document.getElementById("getintext");
         t.innerHTML = "Website loading competed, about to enter.";
@@ -221,49 +213,48 @@
                 t.style.display = "none";
             },2000);
         },2000);
-        const mediaPlayer = document.getElementById("media-player");
-        const controlBar = document.getElementById("control-bar");
-        const playPauseButton = document.getElementById('play-pause-button');
-        const seekBar = document.getElementById('seek-bar');
+        let t = document.getElementById("bb");
+        t.style.display = "none";
 
-        function showMediaFiles() {
-            const folderPath = "English/03"; // 文件夹路径
+        function showFiles() {
+            const folderPath = "English"; // 文件夹路径
 
             fetch("https://api.github.com/repos/Lisu-Liso/page/contents/" + folderPath+"?ref=master")
             .then(response => response.json())
             .then(data => {
-                const mp3Files = data.filter(item => item.type === "file" && item.name.endsWith(".mp3"));
+                const htmlFiles = data.filter(item => item.type === "file" && item.name.endsWith(".html"));
 
-                mp3Files.forEach(file => {
-                    const fileName = file.name;
-                    const fileURL = "./03/"+file.name;
-
-                    var audio = document.createElement('audio');
-                    audio.controls = true;
-                    console.log(fileURL);
-                    audio.src = fileURL;
-                    // document.body.appendChild(document.createElement('br'));
-                    var title = document.createElement('font');
-                    title.innerHTML = fileName;
-                    //TODO:
-                    // title.style.background = "linear-gradient(75deg,rgba(145, 202, 240, 0.75),rgba(248, 102, 248, 0.75))"；
-                    // title.style.borderRadius = '20px';
-                    // title.style.textAlign = 'center';
-                    // title.style.cursor = 'pointer';
-                    // document.body.appendChild(title);
-                    var divname=document.getElementById('controller');
-                    divname.appendChild(document.createElement('br'));
-                    divname.appendChild(title);
-                    divname.appendChild(audio);
-                    // document.body.appendChild(audio);
+                htmlFiles.forEach(file => {
+                    var button = document.createElement('a');
+                    var text = document.createElement('font');
+                    text.innerHTML = file.name;
+                    text.size = '7';
+                    text.className = 'article-header--title';
+                    button.appendChild(text);
+                    button.className = 'newbutton';
+                    let url = './'+file.name;
+                    button.onclick = (function(url) {
+                        return function() {
+                        click(url);
+                        };
+                    })(url);
+                    var controller = document.getElementById('controller');
+                    controller.appendChild(document.createElement('br'));
+                    controller.appendChild(button);
                 })
             })
             .catch(error => {
-                console.error('Error fetching media files:', error);
+                console.error('Error fetching HTML files:', error);
             });
         };
-
-        showMediaFiles();
+        function click(url){
+            let t = document.getElementById("bb");
+            t.style.display = "block";
+            t.style.animation = "boardout 0.5s ease-in-out";
+            console.log(url);
+            location.href = url;
+        }
+        showFiles();
     </script>
 </body>
 </html>

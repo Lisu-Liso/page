@@ -227,16 +227,16 @@
         const seekBar = document.getElementById('seek-bar');
 
         function showMediaFiles() {
-            const folderPath = "English/03"; // 文件夹路径
+            const folderPath = "English"; // 文件夹路径
 
             fetch("https://api.github.com/repos/Lisu-Liso/page/contents/" + folderPath+"?ref=master")
             .then(response => response.json())
             .then(data => {
-                const mp3Files = data.filter(item => item.type === "file" && item.name.endsWith(".mp3"));
+                const mp3Files = data.filter(item => item.type === "file" && item.name.endsWith(".html"));
 
                 mp3Files.forEach(file => {
                     const fileName = file.name;
-                    const fileURL = "./03/"+file.name;
+                    const fileURL = file.download_url;
 
                     var audio = document.createElement('audio');
                     audio.controls = true;

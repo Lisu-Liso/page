@@ -203,12 +203,12 @@
 </head>
 <body>
     <img class="backgroundimage" src="./background.png">
-    <div id="controller"></div>
-    <div class="headerblock">
+    <div id="controller"><font>test</font></div>
+    <!-- <div class="headerblock">
         <div class="centertext"><font size="6">GralleoX Studio</font></div>
         <div class="lefttext"><font size="6">Spwaiter(Liso)</font></div>
         <div class="righttext"><font size="6">2023</font></div>
-    </div>
+    </div> -->
     <div class="getin_screen" id="getin">
         <font size="7" id="getintext">The website is loading, please wait...</font>
     </div>
@@ -221,49 +221,33 @@
                 t.style.display = "none";
             },2000);
         },2000);
-        const mediaPlayer = document.getElementById("media-player");
-        const controlBar = document.getElementById("control-bar");
-        const playPauseButton = document.getElementById('play-pause-button');
-        const seekBar = document.getElementById('seek-bar');
 
-        function showMediaFiles() {
-            const folderPath = "English/03"; // 文件夹路径
+        function showFiles() {
+            const folderPath = "English"; // 文件夹路径
 
             fetch("https://api.github.com/repos/Lisu-Liso/page/contents/" + folderPath+"?ref=master")
             .then(response => response.json())
             .then(data => {
-                const mp3Files = data.filter(item => item.type === "file" && item.name.endsWith(".mp3"));
+                const htmlFiles = data.filter(item => item.type === "file" && item.name.endsWith(".html"));
 
-                mp3Files.forEach(file => {
-                    const fileName = file.name;
-                    const fileURL = "./03/"+file.name;
-
-                    var audio = document.createElement('audio');
-                    audio.controls = true;
-                    console.log(fileURL);
-                    audio.src = fileURL;
-                    // document.body.appendChild(document.createElement('br'));
-                    var title = document.createElement('font');
-                    title.innerHTML = fileName;
-                    //TODO:
-                    // title.style.background = "linear-gradient(75deg,rgba(145, 202, 240, 0.75),rgba(248, 102, 248, 0.75))"；
-                    // title.style.borderRadius = '20px';
-                    // title.style.textAlign = 'center';
-                    // title.style.cursor = 'pointer';
-                    // document.body.appendChild(title);
-                    var divname=document.getElementById('controller');
-                    divname.appendChild(document.createElement('br'));
-                    divname.appendChild(title);
-                    divname.appendChild(audio);
-                    // document.body.appendChild(audio);
+                htmlFiles.forEach(file => {
+                    var button = document.createElement('a');
+                    var text = document.createElement('font');
+                    text.innerHTML = file.name;
+                    text.size = '7';
+                    button.innerHTML = file.name;
+                    button.style = 'newbutton';
+                    button.onclick = click(file.download_url);
+                    var controller = document.getElementById('controller');
+                    controller.appendChild(button);
                 })
             })
             .catch(error => {
                 console.error('Error fetching media files:', error);
             });
         };
-
-        showMediaFiles();
+        click
+        showFiles();
     </script>
 </body>
 </html>

@@ -227,35 +227,15 @@
         const seekBar = document.getElementById('seek-bar');
 
         function showMediaFiles() {
-            const folderPath = "English/03"; // 文件夹路径
+            const folderPath = "English"; // 文件夹路径
 
             fetch("https://api.github.com/repos/Lisu-Liso/page/contents/" + folderPath+"?ref=master")
             .then(response => response.json())
             .then(data => {
-                const mp3Files = data.filter(item => item.type === "file" && item.name.endsWith(".mp3"));
+                const htmlFiles = data.filter(item => item.type === "file" && item.name.endsWith(".html"));
 
                 mp3Files.forEach(file => {
-                    const fileName = file.name;
-                    const fileURL = "./03/"+file.name;
-
-                    var audio = document.createElement('audio');
-                    audio.controls = true;
-                    console.log(fileURL);
-                    audio.src = fileURL;
-                    // document.body.appendChild(document.createElement('br'));
-                    var title = document.createElement('font');
-                    title.innerHTML = fileName;
-                    //TODO:
-                    // title.style.background = "linear-gradient(75deg,rgba(145, 202, 240, 0.75),rgba(248, 102, 248, 0.75))"；
-                    // title.style.borderRadius = '20px';
-                    // title.style.textAlign = 'center';
-                    // title.style.cursor = 'pointer';
-                    // document.body.appendChild(title);
-                    var divname=document.getElementById('controller');
-                    divname.appendChild(document.createElement('br'));
-                    divname.appendChild(title);
-                    divname.appendChild(audio);
-                    // document.body.appendChild(audio);
+                    var button = document.createElement
                 })
             })
             .catch(error => {
