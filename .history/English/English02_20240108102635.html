@@ -218,7 +218,7 @@
         const seekBar = document.getElementById('seek-bar');
 
         function showMediaFiles() {
-            const folderPath = "English/03"; // 文件夹路径
+            const folderPath = "English/02"; // 文件夹路径
 
             fetch("https://api.github.com/repos/Lisu-Liso/page/contents/" + folderPath+"?ref=master")
             .then(response => response.json())
@@ -227,7 +227,7 @@
 
                 mp3Files.forEach(file => {
                     const fileName = file.name;
-                    const fileURL = "./03/"+file.name;
+                    const fileURL = "./02/"+file.name;
 
                     var audio = document.createElement('audio');
                     audio.controls = true;
