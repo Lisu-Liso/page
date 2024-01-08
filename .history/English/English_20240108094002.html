@@ -50,13 +50,13 @@
                 backdrop-filter        : blur(15px);
                 -webkit-backdrop-filter: blur(15px);
             }
-            30% {
+            40% {
                 background-color       : rgba(255,255,255,0.5);
                 color                  : black;
                 backdrop-filter        : blur(15px);
                 -webkit-backdrop-filter: blur(15px);
             }
-            60% {
+            70% {
                 background-color       : rgba(255,255,255,0.5);
                 color                  : black;
                 backdrop-filter        : blur(15px);
@@ -69,6 +69,22 @@
                 -webkit-backdrop-filter: blur(0px);
             }
         }
+        @keyframes blockquite{
+            0% {
+                background-color       : rgba(255,255,255,0.5);
+                backdrop-filter        : blur(15px);
+                -webkit-backdrop-filter: blur(15px);
+                box-shadow             : 0 20px 50px rgba(0,0,0,0.2);
+                opacity                : 1;
+            }
+            100% {
+                background-color       : rgba(255,255,255,0);
+                backdrop-filter        : blur(0px);
+                -webkit-backdrop-filter: blur(0px);
+                box-shadow             : 0 20px 50px rgba(0,0,0,0);
+                opacity                : 0;
+            }
+        }
         .header-float{
             position: fixed;
             top     : 0;
@@ -78,7 +94,7 @@
         }
         .transitionblock{
             position               : fixed;
-            top                    : 0;
+            top                    : 80px;
             left                   : 0;
             right                  : 0;
             bottom                 : 0;
@@ -88,7 +104,7 @@
             margin-bottom          : 0;
             backdrop-filter        : blur(15px);
             -webkit-backdrop-filter: blur(15px);
-            background-color       : rgba(255,255,255,1);
+            background-color       : rgba(255,255,255,0);
         }
         @keyframes boardout{
             0% {
@@ -166,7 +182,9 @@
     <div class="getin_screen" id="getin">
         <font size="7" id="getintext">The website is loading, please wait...</font>
     </div>
-    <div class="transitionblock" id="bb"></div>
+    <div class="getin_screen" id="bb">
+        <font size="7" id="getintext">The website is loading, please wait...</font>
+    </div>
     <script>
         setTimeout(function(){
         let t = document.getElementById("getintext");
