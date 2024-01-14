@@ -206,7 +206,7 @@
         const seekBar = document.getElementById('seek-bar');
 
         function showMediaFiles() {
-            const folderPath = "English/03"; // 文件夹路径
+            const folderPath = "English/01"; // 文件夹路径
 
             fetch("https://api.github.com/repos/Lisu-Liso/page/contents/" + folderPath+"?ref=master")
             .then(response => response.json())
@@ -215,7 +215,7 @@
 
                 mp3Files.forEach(file => {
                     const fileName = file.name;
-                    const fileURL = "./03/"+file.name;
+                    const fileURL = "./01/"+file.name;
 
                     var audio = document.createElement('audio');
                     audio.controls = true;
@@ -245,11 +245,11 @@
             console.log("clickbutton");
             let t = document.getElementById("bb");
             t.style.display = "block";
-            t.style.animation = "boardout 1s ease-in-out";
+            t.style.animation = "boardout 2s ease-in-out";
             setTimeout(function(){
                 console.log("./English.html");
                 location.href = "./English.html";
-            },1000);
+            },2000);
         }
         showMediaFiles();
     </script>

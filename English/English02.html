@@ -129,18 +129,6 @@
                 backdrop-filter        : blur(0px);
                 -webkit-backdrop-filter: blur(0px);
             }
-            40% {
-                background-color       : rgba(255,255,255,0.5);
-                color                  : black;
-                backdrop-filter        : blur(15px);
-                -webkit-backdrop-filter: blur(15px);
-            }
-            70% {
-                background-color       : rgba(255,255,255,0.5);
-                color                  : black;
-                backdrop-filter        : blur(15px);
-                -webkit-backdrop-filter: blur(15px);
-            }
             100% {
                 background-color       : rgba(255,255,255,1);
                 color                  : black;
@@ -257,11 +245,11 @@
             console.log("clickbutton");
             let t = document.getElementById("bb");
             t.style.display = "block";
-            t.style.animation = "boardout 2s ease-in-out";
+            t.style.animation = "boardout 1s ease-in-out";
             setTimeout(function(){
                 console.log("./English.html");
                 location.href = "./English.html";
-            },2000);
+            },1000);
         }
         showMediaFiles();
     </script>
