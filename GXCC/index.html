@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>GralleoX Studio</title>
+        <link rel="stylesheet" type="text/css" href="./header.css">
+        <link rel="stylesheet" type="text/css" href="./orientation.css">
+        <link rel="shortcut icon" href="./GralleoX logo v2 web.ico">
+        <style>
+            body{
+                overflow        : scroll;
+                background-color: white;
+                top             : 0;
+                bottom          : 0;
+                left            : 0;
+                right           : 0;
+                margin-top      : 100px;
+                margin-bottom   : 0;
+                margin-left     : 0;
+                margin-right    : 0;
+                user-select     : none;
+            }
+            ::-webkit-scrollbar{display: none;}
+            .getin_screen{
+                position        : fixed;
+                top             : 0;
+                bottom          : 0;
+                left            : 0;
+                right           : 0;
+                background-color: rgba(0,0,0,0);
+                color           : rgba(0,0,0,0);
+                animation       : getinanimation 4s ease-in-out;
+                text-align      : center;
+                display         : table-cell;
+            }
+            @keyframes getinanimation{
+                0% {
+                    background-color       : rgba(255,255,255,1);
+                    color                  : black;
+                    backdrop-filter        : blur(15px);
+                    -webkit-backdrop-filter: blur(15px);
+                }
+                40% {
+                    background-color       : rgba(255,255,255,0.5);
+                    color                  : black;
+                    backdrop-filter        : blur(15px);
+                    -webkit-backdrop-filter: blur(15px);
+                }
+                70% {
+                    background-color       : rgba(255,255,255,0.5);
+                    color                  : black;
+                    backdrop-filter        : blur(15px);
+                    -webkit-backdrop-filter: blur(15px);
+                }
+                100% {
+                    background-color       : rgba(0,0,0,0);
+                    color                  : rgba(0,0,0,0);
+                    backdrop-filter        : blur(0px);
+                    -webkit-backdrop-filter: blur(0px);
+                }
+            }
+            .download_block{
+                position               : fixed;
+                top                    : 100px;
+                left                   : 100px;
+                right                  : 100px;
+                bottom                 : 100px;
+                margin-top             : 10px;
+                margin-left            : 10px;
+                margin-right           : 10px;
+                margin-bottom          : 10px;
+                background-color       : rgba(255,255,255,0.5);
+                backdrop-filter        : blur(15px);
+                -webkit-backdrop-filter: blur(15px);
+                border-radius          : 100px;
+                box-shadow             : 0 20px 50px rgba(0,0,0,0.2);
+            }
+            @keyframes blockout{
+                0% {
+                    background-color       : rgba(255,255,255,0);
+                    backdrop-filter        : blur(0px);
+                    -webkit-backdrop-filter: blur(0px);
+                    box-shadow             : 0 20px 50px rgba(0,0,0,0);
+                    opacity                : 0;
+                }
+                100% {
+                    background-color       : rgba(255,255,255,0.5);
+                    backdrop-filter        : blur(15px);
+                    -webkit-backdrop-filter: blur(15px);
+                    box-shadow             : 0 20px 50px rgba(0,0,0,0.2);
+                    opacity                : 1;
+                }
+            }
+            @keyframes blockquite{
+                0% {
+                    background-color       : rgba(255,255,255,0.5);
+                    backdrop-filter        : blur(15px);
+                    -webkit-backdrop-filter: blur(15px);
+                    box-shadow             : 0 20px 50px rgba(0,0,0,0.2);
+                    opacity                : 1;
+                }
+                100% {
+                    background-color       : rgba(255,255,255,0);
+                    backdrop-filter        : blur(0px);
+                    -webkit-backdrop-filter: blur(0px);
+                    box-shadow             : 0 20px 50px rgba(0,0,0,0);
+                    opacity                : 0;
+                }
+            }
+            .header-float{
+                position: fixed;
+                top     : 0;
+                left    : 0;
+                right   : 0;
+                width   : 100%;
+            }
+            .black_board{
+                position               : fixed;
+                top                    : 80px;
+                left                   : 0;
+                right                  : 0;
+                bottom                 : 0;
+                margin-top             : 0;
+                margin-left            : 0;
+                margin-right           : 0;
+                margin-bottom          : 0;
+                backdrop-filter        : blur(15px);
+                -webkit-backdrop-filter: blur(15px);
+                background-color       : rgba(0,0,0,0.3);
+            }
+            @keyframes boardout{
+                0% {
+                    backdrop-filter        : blur(0px);
+                    -webkit-backdrop-filter: blur(0px);
+                    background-color       : rgba(0,0,0,0);
+                }
+                100% {
+                    backdrop-filter        : blur(15px);
+                    -webkit-backdrop-filter: blur(15px);
+                    background-color       : rgba(0,0,0,0.3);
+                }
+            }
+            @keyframes boardquite{
+                0% {
+                    backdrop-filter        : blur(15px);
+                    -webkit-backdrop-filter: blur(15px);
+                    background-color       : rgba(0,0,0,0.3);
+                }
+                100% {
+                    backdrop-filter        : blur(0px);
+                    -webkit-backdrop-filter: blur(0px);
+                    background-color       : rgba(0,0,0,0);
+                }
+            }
+            .newbutton{
+                background   : linear-gradient(75deg,rgba(145, 202, 240, 0.75),rgba(248, 102, 248, 0.75));
+                border-radius: 20px;
+                text-align   : center;
+                cursor       : pointer;
+            }
+            :root {
+                --rainbow-gradient: linear-gradient(-90deg,#adfbda 0,#35c3ff 30%,#fda399 50%,#76d880 70%,#ebf38b 90%,#adfbda 100%);
+            }
+            .article-header--title {
+                background-image       : var(--rainbow-gradient,#fff);
+                background-size        : 100%;
+                background-repeat      : repeat;
+                background-clip        : text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                -moz-background-clip   : text;
+                -moz-text-fill-color   : transparent;
+                filter                 : drop-shadow(0 0 2rpx #000);
+                text-shadow            : none!important;
+                cursor                 : pointer;
+            }
+            a{
+                text-decoration: none;
+            }
+            font{
+                cursor : default;
+            }
+            .backgroundimage{
+                position: fixed;
+                top     : 0;
+                left    : 0;
+                right   : 0;
+                width   : 100%;
+                height  : 100%;
+                z-index: -1;
+            }
+            .normaltext{
+                font-size: 18pt;
+            }
+        </style>
+    </head>
+    <body>
+        <img class="backgroundimage" src="./background.png">
+        <div style="text-align:center;top:0;left:0;right:0;"><font size="7">这里是GXCC中文官网！</font></div>
+        <p class="normaltext">GXCC下载链接</p>
+        <a class="newbutton" onclick="join_us()"><font class="article-header--title" size="7">Download</font></a>
+        <div class="black_board" id="bb"></div>
+        <div class="download_block" id="download_block">
+            <div style="text-align: center">
+                <a class="newbutton" onclick="close_download_block()"><font class="article-header--title" size="7">点击关闭此框</font></a>
+            </div>
+            <div style="margin-left: 1cm;">
+                <font size="7" color="black">这里是下载链接（最新版本）</font>
+                <br>
+                <font size="7" color="grey">历史版本</font>
+                <font size="7" color="red">暂时</font>
+                <font size="7" color="grey">不支持下载</font>
+                <br>
+                <font class="normaltext" color="red">如果杀毒软件报告有病毒请忽略，此软件已经经过Microsoft Defender检测，360纯属误报。</font>
+                <br>
+                <a class="normaltext" href="./GXCCSetup.exe">Link</a>
+            </div>
+        </div>
+        <div class="headerblock">
+            <div class="centertext"><font size="6">GralleoX Studio</font></div>
+            <div class="lefttext"><font size="6">Spwaiter(Liso)</font></div>
+            <div class="righttext"><font size="6">2023</font></div>
+        </div>
+        <div class="getin_screen" id="getin">
+            <font size="7" id="getintext">网站正在加载，请稍后...</font>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </body>
+    <script type="text/javascript">
+        let t = document.getElementById("download_block");
+        t.style.display = "none";
+
+        t = document.getElementById("bb");
+        t.style.display = "none";
+    </script>
+    <script type="text/javascript">
+        setTimeout(function(){
+            let t = document.getElementById("getintext");
+            t.innerHTML = "网站加载完毕，即将进入网站。";
+            setTimeout(function(){
+                let t = document.getElementById("getin");
+                t.style.display = "none";
+            },2000);
+        },2000);
+        function join_us(){
+            let t = document.getElementById("download_block");
+            t.style.display = "block";
+            t.style.animation = "blockout 0.5s ease-in-out";
+
+            t = document.getElementById("bb");
+            t.style.display = "block";
+            t.style.animation = "boardout 0.5s ease-in-out";
+        }
+        function close_download_block(){
+            let t = document.getElementById("download_block");
+            t.style.animation = "blockquite 0.5s ease-in-out";
+
+            t = document.getElementById("bb");
+            t.style.animation = "boardquite 0.5s ease-in-out";
+            setTimeout(function(){
+                let t = document.getElementById("download_block");
+                t.style.display = "none";
+
+                t = document.getElementById("bb");
+                t.style.display = "none";
+            },500);
+        }
+    </script>
+</html>
