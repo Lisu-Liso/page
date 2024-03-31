@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>GralleoX Studio - English Media</title>
@@ -254,7 +254,7 @@
     <a class="newbutton" onclick="backtopicker()"><font class="article-header--title" size="7">Back to Picker</font></a>
     <br>
     <div id="controller">
-        <font size="7" color="black">英语课本选修一听力</font>
+        <font size="7" color="black">英语课本必修二听力</font>
     </div>
     <div class="headerblock">
         <div class="centertext"><font size="6">GralleoX Studio</font></div>
@@ -282,7 +282,7 @@
         const seekBar = document.getElementById('seek-bar');
 
         function showMediaFiles() {
-            const folderPath = "English/11"; // 文件夹路径
+            const folderPath = "English/02"; // 文件夹路径
 
             fetch("https://api.github.com/repos/Lisu-Liso/page/contents/" + folderPath+"?ref=master")
             .then(response => response.json())
@@ -291,7 +291,7 @@
 
                 mp3Files.forEach(file => {
                     const fileName = file.name;
-                    const fileURL = "./11/"+file.name;
+                    const fileURL = "./02/"+file.name;
 
                     var audio = document.createElement('audio');
                     audio.controls = true;
