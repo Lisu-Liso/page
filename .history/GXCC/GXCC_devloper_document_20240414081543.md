@@ -57,7 +57,7 @@ switch(c){
 
 ## Extend Extension
 
-Extend Extension是GXCC扩展的扩展程序（有点绕口）。可以代替扩展程序工作以保证扩展程序的高效。
+Extend Extension是GXCC扩展的
 用于处理各类扩展的耗时操作，节省GXCC监听和运行的时间。
 Extend Extension可以与扩展以各种方式连接。但是不建议使用网络连接，因为网络连接具有不确定性和延迟。并且在无网络环境下会出现超时现象。
 
