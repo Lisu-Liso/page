@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <title>GralleoX Studio - English Media</title>
@@ -208,7 +208,7 @@
         const seekBar = document.getElementById('seek-bar');
 
         function showMediaFiles() {
-            const folderPath = "English/04"; // 文件夹路径
+            const folderPath = "English/11"; // 文件夹路径
 
             fetch("https://api.github.com/repos/Lisu-Liso/page/contents/" + folderPath+"?ref=master")
             .then(response => response.json())
@@ -217,7 +217,7 @@
 
                 mp3Files.forEach(file => {
                     const fileName = file.name;
-                    const fileURL = "./04/"+file.name;
+                    const fileURL = "./11/"+file.name;
 
                     var audio = document.createElement('audio');
                     audio.controls = true;
