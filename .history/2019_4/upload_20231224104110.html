@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <meta charset="utf-8">
         <title>青华中学2019级四班私有-成绩上传网站</title>
         <link rel="stylesheet" type="text/css" href="./header.css">
         <link rel="shortcut icon" href="./GralleoX logo v2 web.ico">
@@ -46,18 +46,8 @@
         <font size="7" color="red">请一定在提交之前认真检查成绩！重复提交代表修改信息！所有信息不应该也不允许出现空格！</font>
         <p>真实姓名：</p>
         <input id="name">
-        <p>语文成绩：</p>
-        <input id="yuwen">
-        <p>数学成绩：</p>
-        <input id="shuxue">
-        <p>英语成绩：</p>
-        <input id="yingyu">
-        <p>物理成绩：</p>
-        <input id="wuli">
-        <p>化学成绩：</p>
-        <input id="huaxue">
-        <p>政治成绩：</p>
-        <input id="zhengzhi">
+        <p>总成绩：</p>
+        <input id="sum">
         <br>
         <br>
         <button id="uploadButton">保存并提交</button>
@@ -78,48 +68,8 @@
                 return;
             }
             json_str += addstr;
-            json_str += "\",\"语文\":\"";
-            var t = document.getElementById("yuwen");
-            var addstr = t.value;
-            if(addstr == ""){
-                alert("请查看表格，你有信息未填写！");
-                return;
-            }
-            json_str += addstr;
-            json_str += "\",\"数学\":\"";
-            var t = document.getElementById("shuxue");
-            var addstr = t.value;
-            if(addstr == ""){
-                alert("请查看表格，你有信息未填写！");
-                return;
-            }
-            json_str += addstr;
-            json_str += "\",\"英语\":\"";
-            var t = document.getElementById("yingyu");
-            var addstr = t.value;
-            if(addstr == ""){
-                alert("请查看表格，你有信息未填写！");
-                return;
-            }
-            json_str += addstr;
-            json_str += "\",\"物理\":\"";
-            var t = document.getElementById("wuli");
-            var addstr = t.value;
-            if(addstr == ""){
-                alert("请查看表格，你有信息未填写！");
-                return;
-            }
-            json_str += addstr;
-            json_str += "\",\"化学\":\"";
-            var t = document.getElementById("huaxue");
-            var addstr = t.value;
-            if(addstr == ""){
-                alert("请查看表格，你有信息未填写！");
-                return;
-            }
-            json_str += addstr;
-            json_str += "\",\"政治\":\"";
-            var t = document.getElementById("zhengzhi");
+            json_str += "\",\"总成绩\":\"";
+            var t = document.getElementById("sum");
             var addstr = t.value;
             if(addstr == ""){
                 alert("请查看表格，你有信息未填写！");
@@ -132,7 +82,7 @@
             var xhr = new XMLHttpRequest();
             xhr.open("POST", url, true);
             xhr.setRequestHeader("Content-Type", "application/json");
-            xhr.onreadystatechange = function() {
+            xhrf.onreadystatechange = function() {
                 if (xhr.readyState === 4) {
                     if (xhr.status === 200) {
                         console.log('SUCCESS')

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
         <title>GralleoX Studio</title>
         <link rel="stylesheet" type="text/css" href="./header.css">
         <link rel="stylesheet" type="text/css" href="./orientation.css">
@@ -58,7 +59,7 @@
                     -webkit-backdrop-filter: blur(0px);
                 }
             }
-            .join_block{
+            .download_block{
                 position               : fixed;
                 top                    : 100px;
                 left                   : 100px;
@@ -195,18 +196,101 @@
     </head>
     <body>
         <img class="backgroundimage" src="./background.png">
-        <div style="text-align:center;top:0;left:0;right:0;"><font size="7">Welcome to GralleoX Studio Website!</font></div>
-        <p class="normaltext">Do you want to join us?</p>
-        <a class="newbutton" onclick="join_us()"><font class="article-header--title" size="7">Join us</font></a>
+        <canvas id="bgCanvas" class="backgroundimage"></canvas>
+        <script>
+            // 获取画布
+            var canvas = document.getElementById('bgCanvas');
+            var ctx = canvas.getContext('2d');
+
+            // 设置画布尺寸与窗口大小一致
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            // 创建一个数组用于存储星星的信息
+            var stars = [];
+
+            // 创建星星对象
+            function Star(x, y, radius, color, speed) {
+                this.x = x;
+                this.y = y;
+                this.radius = radius;
+                this.color = color;
+                this.speed = speed;
+            }
+
+            // 初始化星星
+            function init() {
+                for (var i = 0; i < 200; i++) {
+                    var x = Math.random() * canvas.width;
+                    var y = Math.random() * canvas.height;
+                    var radius = Math.random() * 2;
+                    var color = 'white';
+                    var speed = Math.random() * 0.5;
+
+                    stars.push(new Star(x, y, radius, color, speed));
+                }
+            }
+
+            // 绘制星星
+            function drawStars() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                for (var i = 0; i < stars.length; i++) {
+                    var star = stars[i];
+
+                    ctx.beginPath();
+                    ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = star.color;
+                    ctx.fill();
+                }
+            }
+
+            // 更新星星位置
+            function updateStars() {
+                for (var i = 0; i < stars.length; i++) {
+                    var star = stars[i];
+
+                    star.x += star.speed;
+
+                    if (star.x > canvas.width) {
+                        star.x = 0;
+                    }
+                }
+            }
+
+            // 动画循环
+            function animate() {
+                requestAnimationFrame(animate);
+
+                drawStars();
+                updateStars();
+            }
+
+            // 初始化并启动动画
+            init();
+            animate();
+        </script>
+        <div style="text-align:center;top:0;left:0;right:0;"><font size="7">This page cannot be updated in a timely manner, please go to the Chinese official website ("中文官网")</font></div>
+        <br>
+        <div style="text-align:center;top:0;left:0;right:0;"><font size="7">This is the GXCC English website!</font></div>
+        <p class="normaltext">GXCC download link</p>
+        <a class="newbutton" onclick="join_us()"><font class="article-header--title" size="7">Download</font></a>
         <div class="black_board" id="bb"></div>
-        <div class="join_block" id="join_block">
+        <div class="download_block" id="download_block">
             <div style="text-align: center">
-                <a class="newbutton" onclick="close_join_block()"><font class="article-header--title" size="7">Tap to close this block.</font></a>
+                <a class="newbutton" onclick="close_download_block()"><font class="article-header--title" size="7">Click to close this box</font></a>
             </div>
-            <div style="margin-left: 1cm;text-align: center;">
-                <font size="7" color="black">QQ:872428392</font>
+            <div style="margin-left: 1cm;">
+                <font size="7" color="black">Here are the download links (latest version)</font>
                 <br>
-                <img src="./qqgroup.png" style="height: 10cm;width: 5.63cm;">
+                <font size="7" color="grey">Historical versions</font>
+                <font size="7" color="grey">not available for download</font>
+                <font size="7" color="red">TEMPORARILY</font>
+                <font size="7" color="grey">!</font>
+                <br>
+                <font class="normaltext" color="red">If antivirus software reports viruses, please ignore. This software has been tested by Microsoft Defender, 360 is a false positive.</font>
+                <br>
+                <a class="normaltext" href="./GXCCSetup.exe">Link</a>
             </div>
         </div>
         <div class="headerblock">
@@ -217,256 +301,9 @@
         <div class="getin_screen" id="getin">
             <font size="7" id="getintext">The website is loading, please wait...</font>
         </div>
-        <br>
-        <div style="text-align: center;">
-            <font class="article-header--title" size="7">我们希望为GXCC更名为Sta</font>
-        </div>
-        <div style="text-align: center;">
-            <font class="article-header--title" size="7">GXCC官网链接&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GXCC Official Link</font>
-            <br>
-            <a class="newbutton" href="./../GXCC" target="_blank"><font class="article-header--title" size="7">中文官网</font></a>
-            <font class="normaltext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font>
-            <a class="newbutton" href="./../GXCC-en" target="_blank"><font class="article-header--title" size="7">English Official Website</font></a>
-        </div>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
     </body>
     <script type="text/javascript">
-        let t = document.getElementById("join_block");
+        let t = document.getElementById("download_block");
         t.style.display = "none";
 
         t = document.getElementById("bb");
@@ -475,14 +312,14 @@
     <script type="text/javascript">
         setTimeout(function(){
             let t = document.getElementById("getintext");
-            t.innerHTML = "Website loading competed, about to enter.";
+            t.innerHTML = "The website has finished loading and will enter shortly.";
             setTimeout(function(){
                 let t = document.getElementById("getin");
                 t.style.display = "none";
             },2000);
         },2000);
         function join_us(){
-            let t = document.getElementById("join_block");
+            let t = document.getElementById("download_block");
             t.style.display = "block";
             t.style.animation = "blockout 0.5s ease-in-out";
 
@@ -490,14 +327,14 @@
             t.style.display = "block";
             t.style.animation = "boardout 0.5s ease-in-out";
         }
-        function close_join_block(){
-            let t = document.getElementById("join_block");
+        function close_download_block(){
+            let t = document.getElementById("download_block");
             t.style.animation = "blockquite 0.5s ease-in-out";
 
             t = document.getElementById("bb");
             t.style.animation = "boardquite 0.5s ease-in-out";
             setTimeout(function(){
-                let t = document.getElementById("join_block");
+                let t = document.getElementById("download_block");
                 t.style.display = "none";
 
                 t = document.getElementById("bb");
