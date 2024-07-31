@@ -1,0 +1,37 @@
+.roundblock{
+    border-radius   : 20px;
+    background-color: white;
+    position        : fixed;
+    margin-top      : 0px;
+    margin-left     : 0px;
+    margin-right    : 0px;
+    margin-bottom   : 0px;
+    top             : 0px;
+    left            : 0px;
+    right           : 0px;
+    bottom          : 0px;
+    --top             : 0px;
+    --left            : 0px;
+    --right           : 0px;
+    --bottom          : 0px;
+    --totop: 0px;
+    --toleft: 0px;
+    --toright: 0px;
+    --tobottom: 0px;
+    animation: ease-in-out 2s change;
+    box-shadow             : 0 20px 50px rgba(0,0,0,0.2);
+}
+@keyframes change {
+    0% {
+        top: var(top);
+        left: var(left);
+        right: var(right);
+        bottom: var(bottom);
+    }
+    100% {
+        top: var(--totop);
+        left: var(--toleft);
+        right: var(--toright);
+        bottom: var(--tobottom);
+    }
+}

@@ -1,0 +1,20 @@
+.roundblock{
+    border-radius   : 20px;
+    background-color: white;
+    position        : fixed;
+    margin-top      : 0px;
+    margin-left     : 0px;
+    margin-right    : 0px;
+    margin-bottom   : 0px;
+    top             : 0px;
+    left            : 0px;
+    right           : 0px;
+    bottom          : 0px;
+    height          : 100px;
+    width           : 100px;
+    border-top: 10px;
+    border-: 10px;
+    border-: 10px;
+    border-: 10px;
+    box-shadow             : 0 20px 50px rgba(0,0,0,0.2);
+}

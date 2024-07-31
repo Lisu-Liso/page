@@ -1,0 +1,12 @@
+.roundblock{
+    border-radius: 20px;
+    background-color:white;
+    position: fixed;
+    
+    top                    : 100px;
+    left                   : 100px;
+    right                  : 100px;
+    bottom                 : 100px;
+    height: 100px;
+    width: 100px;
+}

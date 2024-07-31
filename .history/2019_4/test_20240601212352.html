@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <title>青华中学2019级四班私有-成绩上传网站</title>
+        <link rel="stylesheet" type="text/css" href="./header.css">
+        <link rel="shortcut icon" href="./GralleoX logo v2 web.ico">
+        <style>
+            body{
+                    overflow       : scroll;
+                    background     : linear-gradient(45deg, rgb(237, 255, 251), rgb(255, 247, 223));
+                    background-size: 6000% 6000%;
+                    animation      : gradientBG 60s ease infinite;
+                    top            : 0;
+                    bottom         : 0;
+                    left           : 0;
+                    right          : 0;
+                    margin-top     : 100px;
+                    margin-bottom  : 0;
+                    margin-left    : 100px;
+                    margin-right   : 100px;
+                    user-select    : none;
+                }
+                @keyframes gradientBG {
+                    0% {
+                        background-position: 0% 50%;
+                    }
+                    50% {
+                        background-position: 100% 50%;
+                    }
+                    100% {
+                        background-position: 0% 50%;
+                    }
+                }
+                ::-webkit-scrollbar{display: none;}
+                .header-float{
+                    position: fixed;
+                    top     : 0;
+                    left    : 0;
+                    right   : 0;
+                    width   : 100%;
+                }
+        </style>
+    </head>
+    <body>
+        <font size="7" color="red">请一定在提交之前认真检查成绩！重复提交代表修改信息！所有信息不应该也不允许出现空格！</font>
+        <p>真实姓名：</p>
+        <input id="name">
+        <p>总成绩：</p>
+        <input id="sum">
+        <br>
+        <br>
+        <button id="uploadButton">保存并提交</button>
+        <div class="headerblock">
+            <div class="centertext"><font size="6">GralleoX Studio</font></div>
+            <div class="lefttext"><font size="6">Spwaiter(Liso)</font></div>
+            <div class="righttext"><font size="6">2023</font></div>
+        </div>
+    </body>
+    <script type="text/javascript">
+        document.getElementById("uploadButton").addEventListener("click", function() {
+            var url = "../upload";
+            var json_str = "{\"姓名\":\"";
+            var t = document.getElementById("name");
+            var addstr = t.value;
+            if(addstr == ""){
+                alert("请查看表格，你有信息未填写！");
+                return;
+            }
+            json_str += addstr;
+            json_str += "\",\"总成绩\":\"";
+            var t = document.getElementById("sum");
+            var addstr = t.value;
+            if(addstr == ""){
+                alert("请查看表格，你有信息未填写！");
+                return;
+            }
+            json_str += addstr;
+            json_str += "\"}";
+            console.log(json_str);
+            var jsonData = JSON.parse(json_str);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", url, true);
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhrf.onreadystatechange = function() {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        console.log('SUCCESS')
+                        alert("信息上传成功！你现在可以安全的退出此网站。");
+                    } else {
+                        console.log('FAILED')
+                        alert("信息上传失败，请联系网站管理员（wly）协助或手动上传。");
+                    }
+                }
+            };
+            xhr.send(JSON.stringify(jsonData));
+        });
+    </script>
+</html>
