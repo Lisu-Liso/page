@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Çà»ªÖÐÑ§2019¼¶ËÄ°àË½ÓÐ-³É¼¨ÉÏ´«ÍøÕ¾</title>
+        <title>ï¿½à»ªï¿½ï¿½Ñ§2019ï¿½ï¿½ï¿½Ä°ï¿½Ë½ï¿½ï¿½-ï¿½É¼ï¿½ï¿½Ï´ï¿½ï¿½ï¿½Õ¾</title>
         <link rel="stylesheet" type="text/css" href="./header.css">
         <link rel="shortcut icon" href="./GralleoX logo v2 web.ico">
         <style>
@@ -42,80 +42,80 @@
         </style>
     </head>
     <body>
-        <font size="7" color="red">ÇëÒ»¶¨ÔÚÌá½»Ö®Ç°ÈÏÕæ¼ì²é³É¼¨£¡ÖØ¸´Ìá½»´ú±íÐÞ¸ÄÐÅÏ¢£¡ËùÓÐÐÅÏ¢²»Ó¦¸ÃÒ²²»ÔÊÐí³öÏÖ¿Õ¸ñ£¡</font>
-        <p>ÕæÊµÐÕÃû£º</p>
+        <font size="7" color="red">ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½á½»Ö®Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¼ï¿½ï¿½ï¿½ï¿½Ø¸ï¿½ï¿½á½»ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½Ó¦ï¿½ï¿½Ò²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¿Õ¸ï¿½</font>
+        <p>ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</p>
         <input id="name">
-        <p>ÓïÎÄ³É¼¨£º</p>
+        <p>ï¿½ï¿½ï¿½Ä³É¼ï¿½ï¿½ï¿½</p>
         <input id="yuwen">
-        <p>ÊýÑ§³É¼¨£º</p>
+        <p>ï¿½ï¿½Ñ§ï¿½É¼ï¿½ï¿½ï¿½</p>
         <input id="shuxue">
-        <p>Ó¢Óï³É¼¨£º</p>
+        <p>Ó¢ï¿½ï¿½É¼ï¿½ï¿½ï¿½</p>
         <input id="yingyu">
-        <p>ÎïÀí³É¼¨£º</p>
+        <p>ï¿½ï¿½ï¿½ï¿½ï¿½É¼ï¿½ï¿½ï¿½</p>
         <input id="wuli">
-        <p>»¯Ñ§³É¼¨£º</p>
+        <p>ï¿½ï¿½Ñ§ï¿½É¼ï¿½ï¿½ï¿½</p>
         <input id="huaxue">
-        <p>ÕþÖÎ³É¼¨£º</p>
+        <p>ï¿½ï¿½ï¿½Î³É¼ï¿½ï¿½ï¿½</p>
         <input id="zhengzhi">
         <br>
         <br>
-        <button id="uploadButton">±£´æ²¢ÉÏ´«</button>
+        <button id="uploadButton">ï¿½ï¿½ï¿½æ²¢ï¿½Ï´ï¿½</button>
         <div class="headerblock">
             <div class="centertext"><font size="6">GralleoX Studio</font></div>
-            <div class="lefttext"><font size="6">Spwaiter(Liso)</font></div>
+            <div class="lefttext"><font size="6">Spwaiter</font></div>
             <div class="righttext"><font size="6">2023</font></div>
         </div>
     </body>
     <script type="text/javascript">
         document.getElementById("uploadButton").addEventListener("click", function() {
             var url = "../upload";
-            var json_str = "{\"ÐÕÃû\":\"";
+            var json_str = "{\"ï¿½ï¿½ï¿½ï¿½\":\"";
             var t = document.getElementById("name");
             var addstr = t.value;
             if(addstr == ""){
-                alert("ÇëÌîÐ´ÄãµÄÕæÊµÐÕÃû")
+                alert("ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½")
             }
             json_str += addstr;
-            json_str += "\",\"ÓïÎÄ\":\"";
+            json_str += "\",\"ï¿½ï¿½ï¿½ï¿½\":\"";
             var t = document.getElementById("yuwen");
             var addstr = t.value;
             if(addstr == ""){
-                alert("ÇëÌîÐ´ÄãµÄÓïÎÄ³É¼¨£¡")
+                alert("ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä³É¼ï¿½ï¿½ï¿½")
             }
             json_str += addstr;
-            json_str += "\",\"ÊýÑ§\":\"";
+            json_str += "\",\"ï¿½ï¿½Ñ§\":\"";
             var t = document.getElementById("shuxue");
             var addstr = t.value;
             if(addstr == ""){
-                alert("ÇëÌîÐ´ÄãµÄÊýÑ§³É¼¨£¡")
+                alert("ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§ï¿½É¼ï¿½ï¿½ï¿½")
             }
             json_str += addstr;
-            json_str += "\",\"Ó¢Óï\":\"";
+            json_str += "\",\"Ó¢ï¿½ï¿½\":\"";
             var t = document.getElementById("yingyu");
             var addstr = t.value;
             if(addstr == ""){
-                alert("ÇëÌîÐ´ÄãµÄÓ¢Óï³É¼¨£¡")
+                alert("ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½Ó¢ï¿½ï¿½É¼ï¿½ï¿½ï¿½")
             }
             json_str += addstr;
-            json_str += "\",\"ÎïÀí\":\"";
+            json_str += "\",\"ï¿½ï¿½ï¿½ï¿½\":\"";
             var t = document.getElementById("wuli");
             var addstr = t.value;
             if(addstr == ""){
-                alert("ÇëÌîÐ´ÄãµÄÎïÀí³É¼¨£¡")
+                alert("ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¼ï¿½ï¿½ï¿½")
             }
             json_str += addstr;
-            json_str += "\",\"»¯Ñ§\":\"";
+            json_str += "\",\"ï¿½ï¿½Ñ§\":\"";
             var t = document.getElementById("huaxue");
             var addstr = t.value;
             if(addstr == ""){
-                alert("ÇëÌîÐ´ÄãµÄ»¯Ñ§³É¼¨£¡")
+                alert("ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½Ä»ï¿½Ñ§ï¿½É¼ï¿½ï¿½ï¿½")
             }
             json_str += addstr;
-            json_str += "\",\"ÕþÖÎ\":\"";
+            json_str += "\",\"ï¿½ï¿½ï¿½ï¿½\":\"";
             var t = document.getElementById("zhengzhi");
             var addstr = t.value;
             if(addstr == ""){
-                alert("ÇëÌîÐ´ÄãµÄÕþÖÎ³É¼¨£¡")
+                alert("ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î³É¼ï¿½ï¿½ï¿½")
             }
             json_str += addstr;
             json_str += "\"}";
@@ -128,10 +128,10 @@
                 if (xhr.readyState === 4) {
                     if (xhr.status === 200) {
                         console.log('SUCCESS')
-                        alert("³É¼¨ÉÏ´«³É¹¦£¡");
+                        alert("ï¿½É¼ï¿½ï¿½Ï´ï¿½ï¿½É¹ï¿½ï¿½ï¿½");
                     } else {
                         console.log('FAILED')
-                        alert("³É¼¨ÉÏ´«Ê§°Ü£¡ÇëÓëÍøÕ¾¸ºÔðÈË£¨Ò²¾ÍÊÇwly£©ÁªÏµÈ¡µÃ°ïÖú¡£");
+                        alert("ï¿½É¼ï¿½ï¿½Ï´ï¿½Ê§ï¿½Ü£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¾ï¿½ï¿½ï¿½ï¿½ï¿½Ë£ï¿½Ò²ï¿½ï¿½ï¿½ï¿½wlyï¿½ï¿½ï¿½ï¿½ÏµÈ¡ï¿½Ã°ï¿½ï¿½ï¿½ï¿½ï¿½");
                     }
                 }
             };
