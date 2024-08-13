@@ -274,7 +274,7 @@
             init();
             animate();
         </script>
-        <div style="text-align:center;top:0;left:0;right:0;"><font size="7">这里是GXCC中文官网！</font></div>
+        <!-- <div style="text-align:center;top:0;left:0;right:0;"><font size="7">这里是GXCC中文官网！</font></div>
         <p class="normaltext" style="color: orange;">重要声明：GXCC4将开放UI设计，并且我们会使用Electron重构软件界面，软件界面会得到前所未有的美化。</p>
         <p class="normaltext">GXCC3和GXCC3开发者文档下载链接</p>
         <a class="newbutton" onclick="join_us()"><font class="article-header--title" size="7">Download</font></a>
@@ -287,9 +287,26 @@
                 <font size="7" color="black">这里是下载链接</font>
                 <br>
                 <font class="normaltext" style="color:red;">如果杀毒软件报告有病毒请忽略，此软件已经经过Microsoft Defender检测，360纯属误报。</font>
+                <br> -->
+                <font class="normaltext" style="color: #d6adfa;">软件声明（对于普通用户）：本程序中AIDriver组件对于您对AI说过的一切内容由你本地的计算机进行计算和处理，无需上传网络，请放心共享您的信息。出于运行需要，你对AI分享的信息会被作为日志保存在AIDriver扩展的文件夹中的日志文件中，如果你需要清除这些信息，请不要删除这些文件。请打开文件并写入‘1’作为占位，否则会影响AIDriver的正常运行。AI的记忆功能依赖Llama3模型的上下文功能，这意味着AI不会保存你的任何数据除了在日志中记录信息用于在进程中传递信息。若您不相信以上内容，您可以寻求专业人士的帮助调查AIDriver的网络请求，其中应该仅包含127.0.0.1（用于本地设备进程之间交流或测试网络的IP）的访问。除非你让AI编写并执行了具有网络请求的代码。</font>
                 <br>
-                <font class="smallnormaltext" style="color: #76d880;">软件声明：本程序使用的依赖项目均是开源的项目，包含Ollama，Llama3，Python3.12，TDM-GCC-64。您对AI说过的一切内容由你本地的计算机进行计算和处理，无需上传网络，请放心共享您的信息。出于运行需要，你对AI分享的信息会被作为日志保存在AIDriver扩展的文件夹中的日志文件中，如果你需要清除这些信息，请不要删除这些文件。请打开文件并写入‘1’作为占位，否则会影响AIDriver的正常运行。AI的记忆功能</font>
                 <br>
+                <font class="normaltext" style="color: #d6adfa;">你不应该向AI请求具有损害设备意图的代码，例如清空磁盘。尽管我们对AI进行了一定的限制，但是AI的上下文处理能力有限，可能并不能完美的避免编写出具有侵害性的代码。</font>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <hr>
+                <br>
+                <br>
+                <br>
+                <br>
+                <font class="normaltext" style="color: #76d880;">软件声明（对于专业用户）：本程序使用的依赖项目均是开源的项目，包含Ollama，Llama3，Python3.12，TDM-GCC-64，PowerShell 5或更新版本。使用的开发工具有Qt Creator4.11.1，TDM-GCC-64 10.3.0-2，Python3.12，Node.js 20.16.0，Electron 31.3.1，Electron-Builder 24.13.3，PowerShell 7，VSCode保持最新版本，json.hpp库，部分pip库（不一一列举）。使用的一切开源库或软件都可以在Github中找到相关资源。</font>
+                <br>
+                <br>
+                <font class="normaltext" style="color: #76d880;">如果你需要开发对应的扩展，你需要阅读软件下载连接中上传的开发者文档，来保证你编写的扩展程序可以被GXCC正常识别且成功运行。我们极不建议使用非etipack文件进行安装扩展，这样会使安装失去可控性，并且你开发的难度和复杂度将会增加，主要体现在需要在安装程序中判断GXCC的安装位置并且</font>
+                <!-- <br>
                 <a class="normaltext" href="https://github.com/Lisu-Liso/GXCC/releases">Link</a>
             </div>
         </div>
@@ -321,7 +338,7 @@
         <p class="normaltext" style="color: grey;">3.分离内核与UI代码，扩大了UI程序的可扩展性。</p>
         <br>
         <p class="normaltext">2024年3月17日：v1.0.0版本</p>
-        <p class="normaltext" style="color: grey;">能够使用最基本的Listenner和Runner扩展程序，支持Extend Extensions。</p>
+        <p class="normaltext" style="color: grey;">能够使用最基本的Listenner和Runner扩展程序，支持Extend Extensions。</p> -->
         <div class="headerblock">
             <div class="centertext"><font size="6">GralleoX Studio</font></div>
             <div class="lefttext"><font size="6">Spwaiter</font></div>
@@ -333,7 +350,7 @@
     </body>
     <script type="text/javascript">
         let t = document.getElementById("download_block");
-        // t.style.display = "none";
+        t.style.display = "none";
 
         t = document.getElementById("bb");
         t.style.display = "none";
