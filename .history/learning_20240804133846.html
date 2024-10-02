@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <title>GralleoX Studio - English Media Picker</title>
+    <title>GralleoX Studio - Subjects Picker</title>
     <link rel="stylesheet" type="text/css" href="./header.css">
     <link rel="shortcut icon" href="./GralleoX logo v2 web.ico">
     <style>
@@ -89,6 +89,7 @@
             backdrop-filter        : blur(15px);
             -webkit-backdrop-filter: blur(15px);
             background-color       : rgba(255,255,255,1);
+            z-index: 1000;
         }
         @keyframes boardout{
             0% {
@@ -97,11 +98,49 @@
                 backdrop-filter        : blur(0px);
                 -webkit-backdrop-filter: blur(0px);
             }
-            100% {
+            40% {
                 background-color       : rgba(255,255,255,1);
                 color                  : black;
                 backdrop-filter        : blur(15px);
                 -webkit-backdrop-filter: blur(15px);
+            }
+            60% {
+                background-color       : rgba(255,255,255,1);
+                color                  : black;
+                backdrop-filter        : blur(15px);
+                -webkit-backdrop-filter: blur(15px);
+            }
+            100% {
+                background-color       : rgba(0,0,0,0);
+                color                  : black;
+                backdrop-filter        : blur(0px);
+                -webkit-backdrop-filter: blur(0px);
+            }
+        }
+        @keyframes boardout2{
+            0% {
+                background-color       : rgba(0,0,0,0);
+                color                  : rgba(0,0,0,0);
+                backdrop-filter        : blur(0px);
+                -webkit-backdrop-filter: blur(0px);
+            }
+            40% {
+                background-color       : rgba(0,0,0,1);
+                color                  : black;
+                backdrop-filter        : blur(15px);
+                -webkit-backdrop-filter: blur(15px);
+            }
+            60% {
+                background-color       : rgba(0,0,0,1);
+                color                  : black;
+                backdrop-filter        : blur(15px);
+                -webkit-backdrop-filter: blur(15px);
+            }
+            100% {
+                background-color       : rgba(0,0,0,0);
+                color                  : black;
+                backdrop-filter        : blur(0px);
+                -webkit-backdrop-filter: blur(0px);
             }
         }
         .newbutton{
@@ -141,146 +180,81 @@
             height  : 100%;
             z-index: -1;
         }
+        .page{
+            position: fixed;
+            margin: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 999;
+        }
     </style>
 </head>
 <body>
-        <canvas id="bgCanvas" class="backgroundimage"></canvas>
-        <script>
-            // 获取画布
-            var canvas = document.getElementById('bgCanvas');
-            var ctx = canvas.getContext('2d');
-
-            // 设置画布尺寸与窗口大小一致
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-
-            // 创建一个数组用于存储星星的信息
-            var stars = [];
-
-            // 创建星星对象
-            function Star(x, y, radius, color, speed) {
-                this.x = x;
-                this.y = y;
-                this.radius = radius;
-                this.color = color;
-                this.speed = speed;
-            }
-
-            // 初始化星星
-            function init() {
-                for (var i = 0; i < 200; i++) {
-                    var x = Math.random() * canvas.width;
-                    var y = Math.random() * canvas.height;
-                    var radius = Math.random() * 2;
-                    var color = 'white';
-                    var speed = Math.random() * 0.5;
-
-                    stars.push(new Star(x, y, radius, color, speed));
-                }
-            }
-
-            // 绘制星星
-            function drawStars() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-                for (var i = 0; i < stars.length; i++) {
-                    var star = stars[i];
-
-                    ctx.beginPath();
-                    ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-                    ctx.fillStyle = star.color;
-                    ctx.fill();
-                }
-            }
-
-            // 更新星星位置
-            function updateStars() {
-                for (var i = 0; i < stars.length; i++) {
-                    var star = stars[i];
-
-                    star.x += star.speed;
-
-                    if (star.x > canvas.width) {
-                        star.x = 0;
-                    }
-                }
-            }
-
-            // 动画循环
-            function animate() {
-                requestAnimationFrame(animate);
-
-                drawStars();
-                updateStars();
-            }
-
-            // 初始化并启动动画
-            init();
-            animate();
-        </script>
-    <div id="controller"></div>
+    <img class="backgroundimage" src="./background.png">
+    <iframe id="chemistry" class="page" src="./Chemistry/index.html" scrolling="yes" frameborder="no"></iframe>
+    <iframe id="english" class="page" src="./English/English.html" scrolling="yes" frameborder="no"></iframe>
+    <div id="controller">
+        <a class="newbutton" onclick="chemistry()"><font size="7" class="article-header--title">Chemistry</font></a>
+        <br>
+        <a class="newbutton" onclick="english()"><font size="7" class="article-header--title">English</font></a>
+    </div>
     <div class="headerblock">
         <div class="centertext"><font size="6">GralleoX Studio</font></div>
         <div class="lefttext"><font size="6">Spwaiter</font></div>
-        <div class="righttext"><font size="6">2023</font></div>
+        <div class="righttext"><font size="6">2024</font></div>
     </div>
     <div class="getin_screen" id="getin">
         <font size="7" id="getintext">The website is loading, please wait...</font>
     </div>
     <div class="transitionblock" id="bb"></div>
     <script>
+        let e = document.getElementById("english");
+        e.style.display="none";
+        e = document.getElementById("chemistry");
+        e.style.display="none";
         setTimeout(function(){
-        let t = document.getElementById("getintext");
-        t.innerHTML = "Website loading competed, about to enter.";
-        setTimeout(function(){
-                let t = document.getElementById("getin");
-                t.style.display = "none";
-            },2000);
+            let t = document.getElementById("getintext");
+            t.innerHTML = "Website loading competed, about to enter.";
+            setTimeout(function(){
+                    let t = document.getElementById("getin");
+                    t.style.display = "none";
+                },2000);
         },2000);
         let t = document.getElementById("bb");
         t.style.display = "none";
 
-        function showFiles() {
-            const folderPath = "English"; // 文件夹路径
-
-            fetch("https://api.github.com/repos/Lisu-Liso/page/contents/" + folderPath+"?ref=master")
-            .then(response => response.json())
-            .then(data => {
-                const htmlFiles = data.filter(item => item.type === "file" && item.name.endsWith(".html"));
-
-                htmlFiles.forEach(file => {
-                    var button = document.createElement('a');
-                    var text = document.createElement('font');
-                    text.innerHTML = file.name;
-                    text.size = '7';
-                    text.className = 'article-header--title';
-                    button.appendChild(text);
-                    button.className = 'newbutton';
-                    let url = './'+file.name;
-                    button.onclick = (function(url) {
-                        return function() {
-                        click(url);
-                        };
-                    })(url);
-                    var controller = document.getElementById('controller');
-                    controller.appendChild(document.createElement('br'));
-                    controller.appendChild(button);
-                })
-            })
-            .catch(error => {
-                console.error('Error fetching HTML files:', error);
-            });
-        };
-        function click(url){
+        function chemistry(){
             let t = document.getElementById("bb");
             t.style.display = "block";
-            t.style.animation = "boardout 1s ease-in-out";
+            t.style.background = "grb(0,0,0,0)"
+            t.style.animation = "boardout2 3s ease-in-out";
             setTimeout(function(){
-                console.log(url);
-                location.href = url;
+                let e = document.getElementById("chemistry");
+                e.style.display="block";
+                setTimeout(function(){
+                    let e = document.getElementById("bb");
+                    e.style.display="none";
+                }, 2000);
             },1000);
         }
-        showFiles();
+        function english(){
+            let t = document.getElementById("bb");
+            t.style.display = "block";
+            t.style.background = "grb(0,0,0,0)"
+            t.style.animation = "boardout 3s ease-in-out";
+            setTimeout(function(){
+                let e = document.getElementById("english");
+                e.style.display="block";
+                setTimeout(function(){
+                    let e = document.getElementById("bb");
+                    e.style.display="none";
+                }, 2000);
+            },1000);
+        }
     </script>
 </body>
 </html>
