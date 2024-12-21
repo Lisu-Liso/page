@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <link rel="shortcut icon" href="./page/GralleoX logo v2 web.ico">
+        <meta http-equiv="Refresh" content="5;url=./page/index.html"/>
+        <title>GralleoX Studio</title>
+        <style>
+            body{
+                overflow       : scroll;
+                background     : linear-gradient(45deg, rgb(237, 255, 251), rgb(255, 247, 223));
+                background-size: 6000% 6000%;
+                animation      : gradientBG 60s ease infinite;
+                font-family    : '微软雅黑';
+            }
+            @keyframes gradientBG {
+                0% {
+                    background-position: 0% 50%;
+                }
+                50% {
+                    background-position: 100% 50%;
+                }
+                100% {
+                    background-position: 0% 50%;
+                }
+            }
+            ::-webkit-scrollbar{display: none;}
+            .transition_{
+                position               : fixed;
+                top                    : 0;
+                left                   : 0;
+                right                  : 0;
+                bottom                 : 0;
+                margin-top             : 0;
+                margin-left            : 0;
+                margin-right           : 0;
+                margin-bottom          : 0;
+                backdrop-filter        : blur(0px);
+                -webkit-backdrop-filter: blur(0px);
+                background-color       : white;
+                animation: transition__ 5s ease-in-out;
+            }
+            @keyframes transition__{
+                0% {
+                    background-color: rgba(0,0,0,0);
+                    filter: blur(0px);
+                    -webkit-filter: blur(0px);
+                }
+                60% {
+                    background-color: rgba(0,0,0,0);
+                    filter: blur(0px);
+                    -webkit-filter: blur(0px);
+                }
+                100% {
+                    background-color: white;
+                    filter: blur(15px);
+                    -webkit-filter: blur(15px);
+                }
+            }
+            .newbutton{
+                background   : linear-gradient(75deg,rgba(145, 202, 240, 0.75),rgba(248, 102, 248, 0.75));
+                border-radius: 20px;
+                text-align   : center;
+            }
+            :root {
+                --rainbow-gradient: linear-gradient(-90deg,#adfbda 0,#35c3ff 30%,#fda399 50%,#76d880 70%,#ebf38b 90%,#adfbda 100%);
+            }
+            .article-header--title {
+                background-image       : var(--rainbow-gradient,#fff);
+                background-size        : 100%;
+                background-repeat      : repeat;
+                background-clip        : text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                -moz-background-clip   : text;
+                -moz-text-fill-color   : transparent;
+                filter                 : drop-shadow(0 0 2rem #000);
+                text-shadow            : none!important;
+            }
+            a{
+                text-decoration: none;
+            }
+        </style>
+    </head>
+    <body>
+        <font size=7 color="black">Now I'm studing in a sernior high,so this page can't be updated.</font>
+        <br>
+        <div class="newbutton">
+            <font size="7">Your device is </font>
+            <font size="7" id="device"></font>
+        </div>
+        <br>
+        </div><font size="7">Jump to homepage in 5 seconds.</font>
+        <div id="transition_" class="transition_"></div>
+    </body>
+    <script type="text/javascript">
+        var userAgent = navigator.userAgent.toLowerCase();
+        if (/android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent)) {
+            // Mobile Phone
+            let t = document.getElementById("device");
+            t.innerHTML = "Mobile Phone.";
+        } else {
+            // PC
+            let t = document.getElementById("device");
+            t.innerHTML = "PC.";
+        }
+    </script>
+</html>
+<!--
+    Gradient, jelly, stereo, box.
+    ~~~         ~~       ~~    ~
+    Gra         ll       eo    x
+    GralleoX
+-->
